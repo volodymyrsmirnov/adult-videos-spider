@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--suppress XmlUnboundNsPrefix -->
+<project name="mylust" basedir="." default="main">
+
+	<target name="requirements">
+		<exec executable="pip" failonerror="true">
+			<arg value="install"/>
+			<arg value="-r"/>
+			<arg value="requirements.txt"/>
+		</exec>
+	</target>
+
+	<target name="tests"> 
+		<exec executable="python" failonerror="true">
+			<arg value="-m"/>
+			<arg value="unittest"/>
+			<arg value="discover"/>
+			<arg value="tests/"/>
+			<arg value="*_test.py"/>
+		</exec>
+	</target>
+
+	<target name="database">
+		<exec executable="alembic" failonerror="true">
+			<arg value="upgrade"/>
+			<arg value="head"/>
+		</exec>
+	</target>
+
+	<target name="i18n">
+		<exec executable="pybabel" failonerror="true">
+			<arg value="compile"/>
+			<arg value="-d"/>
+			<arg value="translations"/>
+		</exec>
+	</target>
+
+	<target name="main" depends="requirements, tests, database, i18n"/>
+
+</project>

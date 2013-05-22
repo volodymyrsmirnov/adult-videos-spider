@@ -1,0 +1,15 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0.0\n"
+"Report-Msgid-Bugs-To: vladimir@smirnov.im\n"
+"POT-Creation-Date: 2013-05-22 19:39+0300\n"
+"Last-Translator: Vladimir Smirnov <vladimir@smirnov.im>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: configs.py:23
+msgid "English"
+msgstr ""
+

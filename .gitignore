@@ -1,0 +1,31 @@
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# Translations
+*.mo
+
+# Mac OSX crap
+.DS_Store
+
+# Invoice.pm specific rules
+all.js
+all.css
+.webassets-cache
+

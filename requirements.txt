@@ -1,0 +1,13 @@
+# Python requirements list
+anyjson
+flask
+flask-sqlalchemy
+flask-babel
+flask-assets
+celery
+requests
+pygeoip
+jsmin
+cssmin
+alembic
+python-slugify
