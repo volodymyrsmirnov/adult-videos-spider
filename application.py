@@ -22,11 +22,11 @@ else:
 babel = Babel(app)
 db = SQLAlchemy(app)
 
-from controllers.test import test
+from controllers.catalog import catalog
 
 from models import *
 
-app.register_blueprint(test, url_prefix='/test')
+app.register_blueprint(catalog)
 
 if __name__ == "__main__":
 	app.run(debug=True)

@@ -20,6 +20,31 @@ video_stars = db.Table('mylust_star_to_video',
 	db.Column('video_id', db.BigInteger, db.ForeignKey('mylust_video.id'))
 )
 
+class Video(db.Model):
+	"""
+	Main video model
+	"""
+	__tablename__ = 'mylust_video'
+
+	id = db.Column(db.BigInteger, primary_key=True)
+
+	title = db.Column(db.Unicode(256), index=True)
+	duration = db.Column(db.Integer, default=0)
+
+	masturbator = db.Column(db.String(32), index=True)
+
+	remote_id = db.Column(db.BigInteger)
+	remote_url = db.Column(db.String(256))
+
+	remote_date = db.Column(db.DateTime(), nullable=True)
+	import_date = db.Column(db.DateTime(), default=datetime.datetime.now)
+
+	views = db.Column(db.BigInteger, default=0)
+
+	tags = db.relationship('VideoTag', secondary=video_tags, backref=db.backref('videos', lazy='dynamic'))
+	thumbs = db.relationship('VideoThumb', backref='video', lazy='dynamic')
+	stars = db.relationship('VideoStar', secondary=video_stars, backref=db.backref('videos', lazy='dynamic'))
+
 class VideoStar(db.Model):
 	"""
 	Video star
@@ -49,30 +74,14 @@ class VideoTag(db.Model):
 	id = db.Column(db.BigInteger, primary_key=True)
 	name = db.Column(db.Unicode(256), index=True, unique=True)
 
-class Video(db.Model):
-	"""
-	Main video model
-	"""
-	__tablename__ = 'mylust_video'
+	def __repr__(self):
+		return "<VideoTag '{0}'>".format(self.name.title())
 
-	id = db.Column(db.BigInteger, primary_key=True)
-
-	title = db.Column(db.Unicode(256), index=True)
-	duration = db.Column(db.Integer, default=0)
-
-	masturbator = db.Column(db.String(32), index=True)
-
-	remote_id = db.Column(db.BigInteger)
-	remote_url = db.Column(db.String(256))
-
-	remote_date = db.Column(db.DateTime(), nullable=True)
-	import_date = db.Column(db.DateTime(), default=datetime.datetime.now)
-
-	views = db.Column(db.BigInteger, default=0)
-
-	tags = db.relationship('VideoTag', secondary=video_tags, backref=db.backref('videos', lazy='dynamic'))
-	thumbs = db.relationship('VideoThumb', backref='video', lazy='dynamic')
-	stars = db.relationship('VideoStar', secondary=video_stars, backref=db.backref('videos', lazy='dynamic'))
+	def get_random_thumbs(self):
+		"""
+		Get 3 thumbs for random video in the category
+		"""
+		return self.videos.order_by(db.func.random()).first().thumbs.limit(3).all()
 
 class KVS(db.Model):
 	"""
