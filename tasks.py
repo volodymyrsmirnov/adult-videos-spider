@@ -4,7 +4,6 @@
 import os
 
 from celery import Celery
-from celery.task.sets import TaskSet
 from celery import chord
 
 celery = Celery(__name__)
@@ -17,7 +16,7 @@ else:
 from masturbators.masturbator import MasturbatorException
 from masturbators.redtube import RedtubeMasturbator
 
-from models import KVS
+from models import db, KVS
 
 @celery.task
 def redtube_get_latest_id():
@@ -54,19 +53,18 @@ def redtube_parse_new_ids():
 	Parse new redtube ids
 	"""
 	max_id = KVS.get("redtube_max_id")
-	last_id = KVS.get("redtube_last_parsed_id")
 
-	if not last_id:
+	try:
+		last_id = db.session.query(db.func.max(Video.remote_id)).filter(Video.masturbator == "redtube").first()[0]
+	except:
 		last_id = 0
 
-	tasks = []
+	if not max_id: 
+		return False
 
 	for redtube_id in range(last_id, max_id):
-		tasks.append(
-			redtube_parse_id.subtask((redtube_id, ))
-		)
+		redtube_parse_id.delay(redtube_id=redtube_id)
 
-	chord(tasks)(redtube_after_parse.subtask())
 
 if __name__ == "__main__":
 	redtube_update_latest_id()

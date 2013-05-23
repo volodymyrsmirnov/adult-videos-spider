@@ -35,6 +35,8 @@ class Masturbator(object):
 		"""
 		r = None
 
+		headers["User-Agent"] = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+
 		try:
 			if method == "GET":
 				r = requests.get(url, data=data, headers=headers, timeout=timeout, allow_redirects=True)
