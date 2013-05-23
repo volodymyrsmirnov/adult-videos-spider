@@ -1,9 +1,12 @@
 # Python requirements list
 anyjson
+
 flask
 flask-sqlalchemy
 flask-babel
 flask-assets
+flask-cache
+
 celery
 requests
 pygeoip

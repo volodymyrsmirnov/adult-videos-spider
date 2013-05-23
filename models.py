@@ -45,7 +45,8 @@ class Video(db.Model):
 	thumbs = db.relationship('VideoThumb', backref='video', lazy='dynamic')
 	stars = db.relationship('VideoStar', secondary=video_stars, backref=db.backref('videos', lazy='dynamic'))
 
-	return "<Video '{0}'>".format(self.remote_url)
+	def __repr__(self):
+		return "<Video '{0}'>".format(self.remote_url)
 
 class VideoStar(db.Model):
 	"""
@@ -71,7 +72,7 @@ class VideoThumb(db.Model):
 	video_id = db.Column(db.BigInteger, db.ForeignKey('mylust_video.id'))
 
 	def __repr__(self):
-		return "<VideoThumb '{0}' for Video '{1}'>".format(self.name.title(), self.video_id)
+		return "<VideoThumb '{0}'>".format(self.url)
 
 class VideoTag(db.Model):
 	"""

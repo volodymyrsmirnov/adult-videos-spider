@@ -20,7 +20,7 @@ class Production(object):
 	SECRET_KEY = "JNJNnlasdaksjNOINIusdasuiuIBY"
 
 	LANGUAGES = {
-		'en_us': lazy_gettext('English'),
+		'en': lazy_gettext('English'),
 	}
 
 	CSRF_ENABLED = True
@@ -36,12 +36,17 @@ class Production(object):
 	}
 
 	BROKER_URL = 'redis://localhost:6379/0'
-	CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+	# CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
 	CELERY_TASK_SERIALIZER = 'json'
 	CELERY_RESULT_SERIALIZER = 'json'
 	CELERY_TIMEZONE = 'UTC'
 	CELERY_ENABLE_UTC = True
+
+	CACHE_TYPE = 'memcached'
+	CACHE_DEFAULT_TIMEOUT = 300
+	CACHE_KEY_PREFIX = 'mylust_'
+	CACHE_MEMCACHED_SERVERS = ['127.0.0.1:11211']
 
 class Testing(Production):
 	"""
@@ -51,8 +56,9 @@ class Testing(Production):
 
 	# Debug everything
 	DEBUG = True
+	TESTING = False
 	SQLALCHEMY_ECHO = True
 	MAIL_DEBUG = True
 	MAIL_FAIL_SILENTLY = False
 	ASSETS_DEBUG = True
-
+	
