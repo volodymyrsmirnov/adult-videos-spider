@@ -45,6 +45,8 @@ class Video(db.Model):
 	thumbs = db.relationship('VideoThumb', backref='video', lazy='dynamic')
 	stars = db.relationship('VideoStar', secondary=video_stars, backref=db.backref('videos', lazy='dynamic'))
 
+	return "<Video '{0}'>".format(self.remote_url)
+
 class VideoStar(db.Model):
 	"""
 	Video star
@@ -53,6 +55,9 @@ class VideoStar(db.Model):
 
 	id = db.Column(db.BigInteger, primary_key=True)
 	name = db.Column(db.Unicode(256), index=True, unique=True)
+
+	def __repr__(self):
+		return "<VideoStar '{0}'>".format(self.name.title())
 
 class VideoThumb(db.Model):
 	"""
@@ -64,6 +69,9 @@ class VideoThumb(db.Model):
 	url = db.Column(db.String(256))
 
 	video_id = db.Column(db.BigInteger, db.ForeignKey('mylust_video.id'))
+
+	def __repr__(self):
+		return "<VideoThumb '{0}' for Video '{1}'>".format(self.name.title(), self.video_id)
 
 class VideoTag(db.Model):
 	"""
@@ -81,7 +89,9 @@ class VideoTag(db.Model):
 		"""
 		Get 3 thumbs for random video in the category
 		"""
-		return self.videos.order_by(db.func.random()).first().thumbs.limit(3).all()
+		return self.videos.order_by(
+			db.func.random()
+		).first().thumbs.limit(3).all()
 
 class KVS(db.Model):
 	"""
