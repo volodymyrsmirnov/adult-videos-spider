@@ -23,12 +23,45 @@ else:
 babel = Babel(app)
 db = SQLAlchemy(app)
 cache = Cache(app)
+assets = Environment(app)
 
 from controllers.catalog import catalog
 
 from models import *
 
 app.register_blueprint(catalog, url_prefix="/<lang_code>")
+
+css = Bundle(
+	Bundle(
+		'source/css/third-party/normalize-1.1.2.css',
+
+		Bundle(
+			'source/css/*.scss',
+
+			filters='scss'
+		),
+
+		filters='cssmin'
+	),
+
+	output='assets/compiled.css'
+)
+
+js = Bundle(
+	'source/js/third-party/jquery-1.9.1.min.js',
+	'source/js/third-party/jquery-migrate-1.2.1.min.js',
+
+	Bundle(
+		'source/js/*.js',
+
+		filters='jsmin'
+	),
+
+	output='assets/compiled.js'
+)
+
+assets.register('css', css)
+assets.register('js', js)
 
 @app.route("/")
 def redirect_to_language():
@@ -46,11 +79,10 @@ def get_locale():
 	lang_code = getattr(g, 'lang_code', None)
 	
 	if lang_code is not None:
-	    return lang_code
+		return lang_code
 
 	return request.accept_languages.best_match(app.config.get("LANGUAGES").keys())
 
 if __name__ == "__main__":
 	app.run(debug=True)
 
-	

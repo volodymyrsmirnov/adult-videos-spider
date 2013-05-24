@@ -56,9 +56,9 @@ class Testing(Production):
 
 	# Debug everything
 	DEBUG = True
-	TESTING = False
+	TESTING = True
 	SQLALCHEMY_ECHO = True
 	MAIL_DEBUG = True
 	MAIL_FAIL_SILENTLY = False
-	ASSETS_DEBUG = True
+	ASSETS_DEBUG = False
 	

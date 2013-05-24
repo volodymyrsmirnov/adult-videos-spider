@@ -1,11 +1,31 @@
-<html>
+<!DOCTYPE html>
+<html lang="{{ g.lang_code }}">
 <head>
 	<title>{% block title %}{% endblock %}</title>
-	<meta name="robots" content="index, archive, follow" />
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="keywords" content="{{ _("porn, sex, porno, free porn, porn tube, porn videos, streaming porn, sex videos, free pussy, pussy") }}" />
+	<meta name="robots" content="index, archive, follow">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="keywords" content="{{ _("porn, sex, porno, free porn, porn tube, porn videos, streaming porn, sex videos, free pussy, pussy") }}">
+	<meta name="description" content="{{ _("MyLust brings you new free porn videos every day. Watch great xxx sex videos and pornos at the best free pussy and porn tube site on the web.") }}">
+
+	{% assets "css" %}
+	<link rel="stylesheet" type="text/css" media="screen" href="{{ ASSET_URL }}">
+	{% endassets %}
+
+	{% assets "js" %}
+	<script type="text/javascript" src="{{ ASSET_URL }}"></script>
+	{% endassets %}
+
 </head>
 <body>
-	{% block content %}{% endblock %}
+	<div class="header">
+			<div class="title">{{ _("MyLust.XXX") }}</div>
+			<div class="subtitle">{{ _("The best place to satisfy your lust in the net") }}</div>
+			<div class="subsubtitle">{{ _("Free daily updated adult video catalog") }}</div>
+	</div>
+
+	<div class="content">
+		{% block content %}
+		{% endblock %}
+	</div>
 </body>
 </html>

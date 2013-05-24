@@ -17,8 +17,7 @@ def add_language_code(endpoint, values):
 	"""
 	Set default value for lang_code url segment
 	"""
-	try:
-		values.setdefault('lang_code', g.lang_code)
+	try: values.setdefault('lang_code', g.lang_code)
 	except: pass
 
 @catalog.url_value_preprocessor
@@ -33,17 +32,32 @@ def pull_lang_code(endpoint, values):
 
 	language_refresh()
 
-@cache.cached(timeout=60)
+@cache.cached(timeout=3600)
 def get_list_of_tags():
 	return db.session.query(
-		VideoTag, 
-		db.func.count(video_tags.c.video_id).label('total'),
-		db.func.sum(Video.views).label('views'),
-	).join(video_tags, Video).group_by(VideoTag).order_by('views DESC, total DESC').first()
+			VideoTag, 
+			db.func.count(video_tags.c.video_id).label('total'),
+			db.func.sum(Video.views).label('views'),
+	).join(video_tags, Video).group_by(VideoTag).order_by('views DESC, total DESC').all()
 
 @catalog.route("/")
 def index():
 	return render_template("catalog/index.html", tags=get_list_of_tags())
+
+@catalog.route("/tag/thumb/<int:id>/<slug>.jpg")
+@cache.cached(timeout=3600)
+def tag_thumb(id, slug):
+	"""
+	TODO: rewrite this function
+	"""
+	thumb = db.session.query(VideoThumb.url).join(
+		video_tags, video_tags.c.video_id == VideoThumb.video_id
+	).filter(video_tags.c.tag_id == id).order_by(db.func.random()).first()
+
+	if thumb == None:
+		abort(404)
+
+	return redirect(thumb[0])
 
 @catalog.route("/tag/<int:id>/<slug>/")
 @catalog.route("/tag/<int:id>/<slug>/<int:page>/")

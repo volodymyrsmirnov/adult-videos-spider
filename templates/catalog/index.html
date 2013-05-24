@@ -1,9 +1,17 @@
 {% extends "base.html" %}
 
-{% block title %}
-{{ _("MyLust.xxx best free adult porn videos") }}
-{% endblock %}
+{% block title %}{{ _("MyLust.xxx best free adult porn videos") }}{% endblock %}
 
 {% block content %}
-{{ _("Test") }}
+	<ul class="tags">
+		{% for tag in tags %}
+			{% set tag = tag[0] %}
+			<li class="tag">
+				<a href="{{ url_for("catalog.tag", id=tag.id, slug=tag.slug) }}">
+					<div class="thumb" style="background-image:url({{ url_for("catalog.tag_thumb", id=tag.id, slug=tag.slug) }})"></div>
+					<div class="name">{{ _(tag.name.title()) }}</div>
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
 {% endblock %}

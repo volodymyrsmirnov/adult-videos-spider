@@ -4,6 +4,7 @@
 """
 Application data storage models
 """
+from slugify import slugify
 
 from application import db
 
@@ -12,12 +13,14 @@ import datetime
 
 video_tags = db.Table('mylust_tag_to_video',
 	db.Column('tag_id', db.BigInteger, db.ForeignKey('mylust_video_tag.id')),
-	db.Column('video_id', db.BigInteger, db.ForeignKey('mylust_video.id'))
+	db.Column('video_id', db.BigInteger, db.ForeignKey('mylust_video.id')),
+	db.Index('tag_to_video_index', 'tag_id', 'video_id')
 )
 
 video_stars = db.Table('mylust_star_to_video',
 	db.Column('star_id', db.BigInteger, db.ForeignKey('mylust_video_star.id')),
-	db.Column('video_id', db.BigInteger, db.ForeignKey('mylust_video.id'))
+	db.Column('video_id', db.BigInteger, db.ForeignKey('mylust_video.id')),
+	db.Index('star_to_video_index', 'star_id', 'video_id')
 )
 
 class Video(db.Model):
@@ -25,6 +28,9 @@ class Video(db.Model):
 	Main video model
 	"""
 	__tablename__ = 'mylust_video'
+	__table_args__ = (
+		db.UniqueConstraint('masturbator', 'remote_id', name='masturbator_remote_id_uc'),
+	)
 
 	id = db.Column(db.BigInteger, primary_key=True)
 
@@ -45,6 +51,10 @@ class Video(db.Model):
 	thumbs = db.relationship('VideoThumb', backref='video', lazy='dynamic')
 	stars = db.relationship('VideoStar', secondary=video_stars, backref=db.backref('videos', lazy='dynamic'))
 
+	@property
+	def slug(self):
+		return slugify(self.title)
+
 	def __repr__(self):
 		return "<Video '{0}'>".format(self.remote_url)
 
@@ -56,6 +66,10 @@ class VideoStar(db.Model):
 
 	id = db.Column(db.BigInteger, primary_key=True)
 	name = db.Column(db.Unicode(256), index=True, unique=True)
+
+	@property
+	def slug(self):
+		return slugify(self.name)
 
 	def __repr__(self):
 		return "<VideoStar '{0}'>".format(self.name.title())
@@ -69,7 +83,7 @@ class VideoThumb(db.Model):
 	id = db.Column(db.BigInteger, primary_key=True)
 	url = db.Column(db.String(256))
 
-	video_id = db.Column(db.BigInteger, db.ForeignKey('mylust_video.id'))
+	video_id = db.Column(db.BigInteger, db.ForeignKey('mylust_video.id'), index=True)
 
 	def __repr__(self):
 		return "<VideoThumb '{0}'>".format(self.url)
@@ -83,16 +97,12 @@ class VideoTag(db.Model):
 	id = db.Column(db.BigInteger, primary_key=True)
 	name = db.Column(db.Unicode(256), index=True, unique=True)
 
+	@property
+	def slug(self):
+		return slugify(self.name)
+
 	def __repr__(self):
 		return "<VideoTag '{0}'>".format(self.name.title())
-
-	def get_random_thumbs(self):
-		"""
-		Get 3 thumbs for random video in the category
-		"""
-		return self.videos.order_by(
-			db.func.random()
-		).first().thumbs.limit(3).all()
 
 class KVS(db.Model):
 	"""
