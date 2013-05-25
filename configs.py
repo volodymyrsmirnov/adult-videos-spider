@@ -21,6 +21,7 @@ class Production(object):
 
 	LANGUAGES = {
 		'en': lazy_gettext('English'),
+		'ru': lazy_gettext('Russian'),
 	}
 
 	CSRF_ENABLED = True

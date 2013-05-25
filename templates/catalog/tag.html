@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% from "macros.html" import render_pagination %}
+
+{% block title %}{{ _("MyLust.xxx best free adult porn videos") }}{% endblock %}
+
+{% block subtitle %}{{ _("Videos under category %(category)s", category=_(tag.name).title()) }}{% endblock %}
+
+{% block content %}
+
+	{{ render_pagination(page, "catalog.tag", id=tag.id, slug=tag.slug) }}
+
+	<ul class="videos">
+
+		{% for video in page.items %}
+			<li class="video">
+				<a href="{{ url_for("catalog.video", id=video.id, slug=video.slug) }}">
+					{% set images = video.thumbs.all() %}
+
+					<img class="thumb" src="{{ url_for("static", filename="img/blank.gif") }}" data-src="{{ images.pop(0).url }}" data-slides="{% for image in images %}{{ image.url }}|{% endfor %}" alt="{{ video.title }}">
+					<div class="name" title="{{ video.title }}">{{ video.title }}</div>
+
+					<div class="details">
+						{{ _("From %(masturbator)s", masturbator=video.masturbator.title()) }} &#8226; {{ video.duration_formated }}
+					</div>
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+	{{ render_pagination(page, "catalog.tag", id=tag.id, slug=tag.slug) }}
+
+	<div class="clear"></div>
+{% endblock %}

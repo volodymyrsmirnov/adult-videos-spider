@@ -32,31 +32,30 @@ from models import *
 app.register_blueprint(catalog, url_prefix="/<lang_code>")
 
 css = Bundle(
+
+	'source/css/third-party/normalize-1.1.2.css',
+	'source/css/third-party/flags.css',
+
 	Bundle(
-		'source/css/third-party/normalize-1.1.2.css',
+		'source/css/main.scss',
 
-		Bundle(
-			'source/css/*.scss',
-
-			filters='scss'
-		),
-
-		filters='cssmin'
+		filters='scss'
 	),
 
+	filters='yui_css',
 	output='assets/compiled.css'
 )
 
 js = Bundle(
 	'source/js/third-party/jquery-1.9.1.min.js',
 	'source/js/third-party/jquery-migrate-1.2.1.min.js',
+	'source/js/third-party/jquery.unveil.min.js',
+	'source/js/third-party/jquery.cookie.js',
+	'source/js/third-party/jquery.purl.js',
 
-	Bundle(
-		'source/js/*.js',
+	'source/js/main.js',
 
-		filters='jsmin'
-	),
-
+	filters='yui_js',
 	output='assets/compiled.js'
 )
 

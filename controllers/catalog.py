@@ -42,7 +42,10 @@ def get_list_of_tags():
 
 @catalog.route("/")
 def index():
-	return render_template("catalog/index.html", tags=get_list_of_tags())
+	return render_template (
+		"catalog/index.html", 
+		tags=get_list_of_tags(), 
+	)
 
 @catalog.route("/tag/thumb/<int:id>/<slug>.jpg")
 @cache.cached(timeout=3600)
@@ -60,9 +63,19 @@ def tag_thumb(id, slug):
 	return redirect(thumb[0])
 
 @catalog.route("/tag/<int:id>/<slug>/")
-@catalog.route("/tag/<int:id>/<slug>/<int:page>/")
-def tag(id, slug, page=0):
-	pass
+@catalog.route("/tag/<int:id>/<slug>/page/<int:page>/")
+def tag(id, slug, page=1):
+	tag = VideoTag.query.get_or_404(id)
+
+	order_by = db.desc(Video.import_date)
+
+	page = tag.videos.order_by(order_by).paginate(page=page, per_page=40)
+
+	return render_template (
+		"catalog/tag.html", 
+		page=page,
+		tag=tag
+	)
 
 @catalog.route("/video/<int:id>/<slug>.html")
 def video(id, slug):
@@ -70,4 +83,7 @@ def video(id, slug):
 
 @catalog.route("/page/<slug>.html")
 def page(slug):
-	pass
+	if not slug in ["disclaimer", "contact_us"]:
+		return abort(404)
+	
+	return render_template("catalog/page_{0}.html".format(slug))

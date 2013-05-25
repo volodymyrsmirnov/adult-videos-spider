@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="{{ g.lang_code }}">
 <head>
-	<title>{% block title %}{% endblock %}</title>
+	<title>{% block title %}{{ _("MyLust.xxx best free adult porn videos") }}{% endblock %}</title>
 	<meta name="robots" content="index, archive, follow">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="keywords" content="{{ _("porn, sex, porno, free porn, porn tube, porn videos, streaming porn, sex videos, free pussy, pussy") }}">
 	<meta name="description" content="{{ _("MyLust brings you new free porn videos every day. Watch great xxx sex videos and pornos at the best free pussy and porn tube site on the web.") }}">
+
+	<script type="text/javascript">
+		var ml_disclaimer_page = "{{ url_for("catalog.page", slug="disclaimer") }}";
+		var ml_current_locale = "{{ g.lang_code }}";
+		var ml_show_disclaimer = true;
+	</script>
 
 	{% assets "css" %}
 	<link rel="stylesheet" type="text/css" media="screen" href="{{ ASSET_URL }}">
@@ -14,18 +20,31 @@
 	{% assets "js" %}
 	<script type="text/javascript" src="{{ ASSET_URL }}"></script>
 	{% endassets %}
-
 </head>
 <body>
 	<div class="header">
-			<div class="title">{{ _("MyLust.XXX") }}</div>
+			<a class="title" href="{{ url_for("catalog.index") }}">{{ _("MyLust.XXX") }}</a>
 			<div class="subtitle">{{ _("The best place to satisfy your lust in the net") }}</div>
 			<div class="subsubtitle">{{ _("Free daily updated adult video catalog") }}</div>
 	</div>
 
 	<div class="content">
+		<div class="title">
+			<div class="name">{% block subtitle %}{% endblock %}</div>
+			<div class="flags">
+				{% for country_code in config.get("LANGUAGES").keys() %}
+					<a title="{{ _("Switch language to %(locale)s", locale=country_code.upper()) }}" href="{{ url_for("catalog.index", lang_code=country_code) }}"><img src="{{ url_for('static', filename='img/blank.gif') }}" class="flag flag-{{country_code}} {% if country_code != g.lang_code %}flag-inactive{% endif %}" alt="{{ _("Switch language to %(locale)s", locale=country_code.upper()) }}"></a>
+				{% endfor %}
+			</div>
+			<div class="clear"></div>
+		</div>
+
 		{% block content %}
 		{% endblock %}
+	</div>
+
+	<div class="footer">
+		<a href="{{ url_for("catalog.page", slug="disclaimer") }}">{{ _("Disclaimer") }}</a> &#8226; <a href="{{ url_for("catalog.page", slug="contact_us") }}">{{ _("Contact us") }}</a>
 	</div>
 </body>
 </html>

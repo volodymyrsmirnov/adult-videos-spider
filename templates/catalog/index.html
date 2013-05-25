@@ -2,16 +2,23 @@
 
 {% block title %}{{ _("MyLust.xxx best free adult porn videos") }}{% endblock %}
 
+{% block subtitle %}{{ _("Popular categories") }}{% endblock %}
+
 {% block content %}
 	<ul class="tags">
+		
 		{% for tag in tags %}
+			{% set quantity = tag[1] %}
 			{% set tag = tag[0] %}
 			<li class="tag">
 				<a href="{{ url_for("catalog.tag", id=tag.id, slug=tag.slug) }}">
-					<div class="thumb" style="background-image:url({{ url_for("catalog.tag_thumb", id=tag.id, slug=tag.slug) }})"></div>
-					<div class="name">{{ _(tag.name.title()) }}</div>
+					<img class="thumb" src="{{ url_for("static", filename="img/blank.gif") }}" data-src="{{ url_for("catalog.tag_thumb", id=tag.id, slug=tag.slug) }}">
+					<div class="name">{{ _(tag.name).title() }}</div>
+					<div class="quantity">{{ _("%(quantity)s videos", quantity="{:,}".format(quantity)) }}</div>
 				</a>
 			</li>
 		{% endfor %}
 	</ul>
+
+	<div class="clear"></div>
 {% endblock %}

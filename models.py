@@ -10,17 +10,18 @@ from application import db
 
 import pickle
 import datetime
+import time
 
 video_tags = db.Table('mylust_tag_to_video',
 	db.Column('tag_id', db.BigInteger, db.ForeignKey('mylust_video_tag.id')),
 	db.Column('video_id', db.BigInteger, db.ForeignKey('mylust_video.id')),
-	db.Index('tag_to_video_index', 'tag_id', 'video_id')
+	db.Index('tag_to_video_index', 'tag_id', 'video_id', unique=True)
 )
 
 video_stars = db.Table('mylust_star_to_video',
 	db.Column('star_id', db.BigInteger, db.ForeignKey('mylust_video_star.id')),
 	db.Column('video_id', db.BigInteger, db.ForeignKey('mylust_video.id')),
-	db.Index('star_to_video_index', 'star_id', 'video_id')
+	db.Index('star_to_video_index', 'star_id', 'video_id', unique=True)
 )
 
 class Video(db.Model):
@@ -43,7 +44,7 @@ class Video(db.Model):
 	remote_url = db.Column(db.String(256))
 
 	remote_date = db.Column(db.DateTime(), nullable=True)
-	import_date = db.Column(db.DateTime(), default=datetime.datetime.now)
+	import_date = db.Column(db.DateTime(), default=datetime.datetime.now, index=True)
 
 	views = db.Column(db.BigInteger, default=0)
 
@@ -54,6 +55,10 @@ class Video(db.Model):
 	@property
 	def slug(self):
 		return slugify(self.title)
+
+	@property
+	def duration_formated(self):
+		return time.strftime('%H:%M:%S', time.gmtime(self.duration))
 
 	def __repr__(self):
 		return "<Video '{0}'>".format(self.remote_url)

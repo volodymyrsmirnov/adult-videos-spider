@@ -1,9 +1,9 @@
-"""${message}
+"""
+${message}
 
 Revision ID: ${up_revision}
 Revises: ${down_revision}
 Create Date: ${create_date}
-
 """
 
 # revision identifiers, used by Alembic.
@@ -16,7 +16,6 @@ ${imports if imports else ""}
 
 def upgrade():
     ${upgrades if upgrades else "pass"}
-
 
 def downgrade():
     ${downgrades if downgrades else "pass"}
