@@ -74,22 +74,21 @@ js = Bundle(
 assets.register('css', css)
 assets.register('js', js)
 
-@app.route("/")
+@app.route('/')
 def redirect_to_language():
 	"""
 	Redirect browser to best matching language
 	"""
 	best_language = request.accept_languages.best_match(app.config.get("LANGUAGES").keys())
-	return redirect(url_for("catalog.index", lang_code=best_language), code=302)
+	return redirect(url_for('catalog.index', lang_code=best_language), code=302)
 
-@app.route("/robots.txt")
+@app.route('/robots.txt')
 def robots():
 	"""
 	Generate robots.txt
 	"""
-	response= make_response(render_template("robots.txt"))
-	response.headers['Content-Type'] = 'text/plain'
-	return response
+	response = render_template('robots.txt')
+	return Response(response, mimetype='text/plain')
 
 @babel.localeselector
 def get_locale():
@@ -101,8 +100,8 @@ def get_locale():
 	if lang_code is not None:
 		return lang_code
 
-	return request.accept_languages.best_match(app.config.get("LANGUAGES").keys())
+	return request.accept_languages.best_match(app.config.get('LANGUAGES').keys())
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 	app.run(debug=True)
 
