@@ -1,20 +1,282 @@
-
 msgid ""
 msgstr ""
-"Project-Id-Version:  1.0.0\n"
+"Project-Id-Version: MyLust 1.0.0\n"
 "Report-Msgid-Bugs-To: vladimir@smirnov.im\n"
-"POT-Creation-Date: 2013-05-22 19:39+0300\n"
-"PO-Revision-Date: 2013-05-22 19:40+0300\n"
+"POT-Creation-Date: 2013-05-27 15:48+0300\n"
+"PO-Revision-Date: 2013-05-27 15:52+0200\n"
 "Last-Translator: Vladimir Smirnov <vladimir@smirnov.im>\n"
 "Language-Team: ru <LL@li.org>\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
+"X-Generator: Poedit 1.5.5\n"
+"Language: Russian\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
-#: configs.py:23
+#: configs.py:24
 msgid "English"
-msgstr ""
+msgstr "Английский"
 
+#: configs.py:25
+msgid "Russian"
+msgstr "Русский"
+
+#: forms.py:15
+msgid "General questions"
+msgstr "Общие вопросы"
+
+#: forms.py:16
+msgid "Partnership and advertising offers"
+msgstr "Реклама и предложения сотрудничества"
+
+#: forms.py:17 templates/catalog/video.html:51
+msgid "Report abusive content"
+msgstr "Сообщить о незаконном содержании"
+
+#: forms.py:18 templates/catalog/video.html:52
+msgid "Report copyright infringement"
+msgstr "Сообщить о нарушении авторских прав"
+
+#: forms.py:22
+msgid "Your name"
+msgstr "Ваше имя"
+
+#: forms.py:23 forms.py:29 forms.py:35
+msgid "This field is required."
+msgstr "Это поле обязательно к заполнению."
+
+#: forms.py:27
+msgid "Reply back to email"
+msgstr "Ваш email для обратного ответа"
+
+#: forms.py:28
+msgid "This should be a valid email"
+msgstr "Это поле должно содержать корректный email"
+
+#: forms.py:32
+msgid "Topic"
+msgstr "Тема"
+
+#: forms.py:34
+msgid "Message"
+msgstr "Сообщение"
+
+#: forms.py:38
+msgid "Please enter the CAPTCHA"
+msgstr "Пожалуйста, введите CAPTCHA"
+
+#: controllers/catalog.py:123
+msgid ""
+"Thank you for your report, our robot will recheck that video automatically."
+msgstr ""
+"Благодарим за Ваше уведомление, наш робот проверит видео в автоматическом "
+"режиме."
+
+#: templates/base.html:4 templates/catalog/index.html:3
+#: templates/catalog/videos.html:5
+msgid "MyLust.xxx best free adult porn videos"
+msgstr "MyLust.xxx луччшее бесплатное порно и фильмы для взрослых "
+
+#: templates/base.html:7
+msgid ""
+"porn, sex, porno, free porn, porn tube, porn videos, streaming porn, sex "
+"videos, free pussy, pussy"
+msgstr ""
+"порно, секс, порнуха, бесплатное порно, порно ролик, порно видео, порнуха "
+"онлайн, секс видео, бесплатные киски, киски"
+
+#: templates/base.html:8
+msgid ""
+"MyLust brings you new free porn videos every day. Watch great xxx sex videos "
+"and pornos at the best free pussy and porn tube site on the web."
+msgstr ""
+"MyLust - ежедневно только лучшая порнуха. Смотрите великолепные xxx секс "
+"видео и порно на лучшем бесплатном сайте в интернете с самыми горячими "
+"членами и кисками. "
+
+#: templates/base.html:26
+msgid "MyLust.XXX"
+msgstr "MyLust.XXX"
+
+#: templates/base.html:27
+msgid "The best place to satisfy your lust in the net"
+msgstr "Создан чтобы удовлетворять твою похоть"
+
+#: templates/base.html:28
+msgid "Free daily updated adult video catalog"
+msgstr "Бесплатный ежедневно обновляемый каталог видео для взрослых"
+
+#: templates/base.html:36
+#, python-format
+msgid "Switch language to %(locale)s"
+msgstr "Переключить язык на %(locale)s"
+
+#: templates/base.html:47 templates/catalog/page_disclaimer.html:3
+msgid "Disclaimer"
+msgstr "Правовая информация"
+
+#: templates/base.html:47 templates/catalog/page_contact_us.html:5
+msgid "Contact us"
+msgstr "Связаться с нами"
+
+#: templates/macros.html:21
+msgid "prev"
+msgstr "&lt;"
+
+#: templates/macros.html:37
+msgid "next"
+msgstr "&gt;"
+
+#: templates/catalog/index.html:5
+msgid "Popular categories"
+msgstr "Популярные категории"
+
+#: templates/catalog/index.html:17
+#, python-format
+msgid "%(quantity)s videos"
+msgstr "%(quantity)s роликов"
+
+#: templates/catalog/page_contact_us.html:12
+msgid ""
+"Thank you for your email. We are doing our best to respond on all incoming "
+"requests in 48 hours."
+msgstr ""
+"Благодарим Вас за Ваше письмо. Мы стараемся отвечать на все запросы в "
+"течении 48 часов."
+
+#: templates/catalog/page_contact_us.html:23
+msgid "Send us an email"
+msgstr "Отправить нам письмо"
+
+#: templates/catalog/page_disclaimer.html:7
+msgid ""
+"This website is intended for mature adults 18 years old and older and "
+"contains explicit material, content and language. Do not view this website "
+"if you are under the age of 18 or are not of legal age in the locale in "
+"which you preside or are viewing this material. Do not view this material if "
+"you live in a state or country which has laws prohibiting such to such "
+"material. This site is an adult only site and is NSFW (Not Safe For Work)."
+msgstr ""
+"Этот сайт предназначен исключительно для людей от 18 лет и старше. Он "
+"содержит откровенные (эротические, порнографические) материалы и нецензурную "
+"речь. Пожалуйста, не просматривайте материалы сайта, если вам меньше 18 лет "
+"либо же вы не достигли возраста, который установлен соответствующими "
+"законами страны или региона вашего текущего месторасположения. Не "
+"просматривайте материалы сайта, если вы живете в стране или регионе, законы "
+"которого запрещают подобный вид информации. Этот сайт предназначен "
+"исключительно для взрослых и небезопасен для просмотра на рабочем месте."
+
+#: templates/catalog/page_disclaimer.html:11
+msgid ""
+"MyLust.xxx is a fully automatic adult search and index engine focused on "
+"free porn tube clips. We do not own, produce or host the videos embeded on "
+"this website. All of the videos embeded on our site are hosted by websites "
+"that are not under our control. The linked videos are automatically gathered "
+"and added into our system by our spider scripts. Thumbnails are "
+"automatically generated from the videos."
+msgstr ""
+"MyLust.xxx это полностью автоматизированный каталог и поисковая платформа, "
+"основной направленностью которой являются сайты для взрослых с бесплатными "
+"видеороликами порнографического содержания. Мы не владеем, не производим и "
+"не храним на наших серверах материалы данного сайта. Вся информация, "
+"представленная на нашем сайте, размещается на серверах, которые находятся "
+"вне нашего владения и контроля. Представленные видеоролики автоматически "
+"собираются и добавляются в нашу базу специальным поисковым движком. Картинки "
+"предпросмотра автоматически генерируются из видео."
+
+#: templates/catalog/page_disclaimer.html:15
+msgid ""
+"All models and subjects are assumed to be at least 18 years old and the "
+"inclusion on this site, nor any editorial comments, should infer their "
+"sexual orientation, beliefs, lifestyle or anything pertaining to their "
+"being. MyLust.xxx has a zero-tolerance policy against illegal pornography. "
+"We take no responsibility for the content on any website which we link to."
+msgstr ""
+"Все модели и актеры на данном сайте достигли восемнадцатилетнего возраста и "
+"факт появления их в нашем каталоге или же описании видеоролика не ставит "
+"своей целью оскорбление их сексуальной ориентации, образа жизни или чего-"
+"либо еще, связанного с их личностью. MyLust.xxx придерживается политики "
+"абсолютной нетерпимости в отношении незаконной порнографии. Мы не несем "
+"никакой ответственности за содержание сайтов на которые мы ссылаемся."
+
+#: templates/catalog/page_disclaimer.html:19
+msgid ""
+"Regarding 18 U.S.C. Section 2257 and 28 C.F.R. Part 75, the owners of this "
+"website are not the \"primary producers\" of any of the content on the "
+"visual content on this website."
+msgstr ""
+"В соответвии с действующим законодательством США, РФ и Украины, владельцы "
+"данного сайта не являются \"первоисточником\" каких-либо материалов, "
+"представленных на этом сайте. "
+
+#: templates/catalog/page_disclaimer.html:23
+#, python-format
+msgid ""
+"For any questions please contact us using the <a href=\"%(formlink)s"
+"\">following form</a>."
+msgstr ""
+"В случае возникновения каких-либо вопросов, Вы можете свзяаться с нами "
+"посредством <a href=\"%(formlink)s\">формы</a>."
+
+#: templates/catalog/page_disclaimer.html:28
+msgid "I confirm I read and accept everything mentioned above"
+msgstr "Я подтверждаю свое согласие со всем вышесказанным"
+
+#: templates/catalog/page_disclaimer.html:29
+msgid "I dont agree with the rules"
+msgstr "Я не согласен с данными правилами"
+
+#: templates/catalog/video.html:3
+#, python-format
+msgid " %(title)s video"
+msgstr "Ролик %(title)s"
+
+#: templates/catalog/video.html:16
+msgid "Posted under categories"
+msgstr "Размещено в категорияз"
+
+#: templates/catalog/video.html:28
+msgid "Starring"
+msgstr "В ролях"
+
+#: templates/catalog/video.html:39
+msgid "Video information"
+msgstr "Информация о видео"
+
+#: templates/catalog/video.html:41
+msgid "Source: "
+msgstr "Источник:"
+
+#: templates/catalog/video.html:42
+msgid "Duration: "
+msgstr "Длительность:"
+
+#: templates/catalog/video.html:43
+msgid "Addition date: "
+msgstr "Дата добавления:"
+
+#: templates/catalog/video.html:48
+msgid "Actions"
+msgstr "Действия"
+
+#: templates/catalog/video.html:50
+msgid "Report video not playing"
+msgstr "Сообщить о неработающем видео"
+
+#: templates/catalog/videos.html:8
+#, python-format
+msgid "Videos under category %(category)s"
+msgstr "Видео в категории %(category)s"
+
+#: templates/catalog/videos.html:13
+#, python-format
+msgid "Videos starring %(name)s"
+msgstr "Видео в главных ролях с %(name)s"
+
+#: templates/catalog/videos.html:36
+#, python-format
+msgid "from %(masturbator)s"
+msgstr "из %(masturbator)s"

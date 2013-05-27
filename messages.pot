@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-23 13:05+0300\n"
+"POT-Creation-Date: 2013-05-27 15:48+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,235 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: templates/catalog/index.html:4
+#: configs.py:24
+msgid "English"
+msgstr ""
+
+#: configs.py:25
+msgid "Russian"
+msgstr ""
+
+#: forms.py:15
+msgid "General questions"
+msgstr ""
+
+#: forms.py:16
+msgid "Partnership and advertising offers"
+msgstr ""
+
+#: forms.py:17 templates/catalog/video.html:51
+msgid "Report abusive content"
+msgstr ""
+
+#: forms.py:18 templates/catalog/video.html:52
+msgid "Report copyright infringement"
+msgstr ""
+
+#: forms.py:22
+msgid "Your name"
+msgstr ""
+
+#: forms.py:23 forms.py:29 forms.py:35
+msgid "This field is required."
+msgstr ""
+
+#: forms.py:27
+msgid "Reply back to email"
+msgstr ""
+
+#: forms.py:28
+msgid "This should be a valid email"
+msgstr ""
+
+#: forms.py:32
+msgid "Topic"
+msgstr ""
+
+#: forms.py:34
+msgid "Message"
+msgstr ""
+
+#: forms.py:38
+msgid "Please enter the CAPTCHA"
+msgstr ""
+
+#: controllers/catalog.py:123
+msgid ""
+"Thank you for your report, our robot will recheck that video "
+"automatically."
+msgstr ""
+
+#: templates/base.html:4 templates/catalog/index.html:3
+#: templates/catalog/videos.html:5
 msgid "MyLust.xxx best free adult porn videos"
 msgstr ""
 
-#: templates/catalog/index.html:8
-msgid "Test"
+#: templates/base.html:7
+msgid ""
+"porn, sex, porno, free porn, porn tube, porn videos, streaming porn, sex "
+"videos, free pussy, pussy"
+msgstr ""
+
+#: templates/base.html:8
+msgid ""
+"MyLust brings you new free porn videos every day. Watch great xxx sex "
+"videos and pornos at the best free pussy and porn tube site on the web."
+msgstr ""
+
+#: templates/base.html:26
+msgid "MyLust.XXX"
+msgstr ""
+
+#: templates/base.html:27
+msgid "The best place to satisfy your lust in the net"
+msgstr ""
+
+#: templates/base.html:28
+msgid "Free daily updated adult video catalog"
+msgstr ""
+
+#: templates/base.html:36
+#, python-format
+msgid "Switch language to %(locale)s"
+msgstr ""
+
+#: templates/base.html:47 templates/catalog/page_disclaimer.html:3
+msgid "Disclaimer"
+msgstr ""
+
+#: templates/base.html:47 templates/catalog/page_contact_us.html:5
+msgid "Contact us"
+msgstr ""
+
+#: templates/macros.html:21
+msgid "prev"
+msgstr ""
+
+#: templates/macros.html:37
+msgid "next"
+msgstr ""
+
+#: templates/catalog/index.html:5
+msgid "Popular categories"
+msgstr ""
+
+#: templates/catalog/index.html:17
+#, python-format
+msgid "%(quantity)s videos"
+msgstr ""
+
+#: templates/catalog/page_contact_us.html:12
+msgid ""
+"Thank you for your email. We are doing our best to respond on all "
+"incoming requests in 48 hours."
+msgstr ""
+
+#: templates/catalog/page_contact_us.html:23
+msgid "Send us an email"
+msgstr ""
+
+#: templates/catalog/page_disclaimer.html:7
+msgid ""
+"This website is intended for mature adults 18 years old and older and "
+"contains explicit material, content and language. Do not view this "
+"website if you are under the age of 18 or are not of legal age in the "
+"locale in which you preside or are viewing this material. Do not view "
+"this material if you live in a state or country which has laws "
+"prohibiting such to such material. This site is an adult only site and is"
+" NSFW (Not Safe For Work)."
+msgstr ""
+
+#: templates/catalog/page_disclaimer.html:11
+msgid ""
+"MyLust.xxx is a fully automatic adult search and index engine focused on "
+"free porn tube clips. We do not own, produce or host the videos embeded "
+"on this website. All of the videos embeded on our site are hosted by "
+"websites that are not under our control. The linked videos are "
+"automatically gathered and added into our system by our spider scripts. "
+"Thumbnails are automatically generated from the videos."
+msgstr ""
+
+#: templates/catalog/page_disclaimer.html:15
+msgid ""
+"All models and subjects are assumed to be at least 18 years old and the "
+"inclusion on this site, nor any editorial comments, should infer their "
+"sexual orientation, beliefs, lifestyle or anything pertaining to their "
+"being. MyLust.xxx has a zero-tolerance policy against illegal "
+"pornography. We take no responsibility for the content on any website "
+"which we link to."
+msgstr ""
+
+#: templates/catalog/page_disclaimer.html:19
+msgid ""
+"Regarding 18 U.S.C. Section 2257 and 28 C.F.R. Part 75, the owners of "
+"this website are not the \"primary producers\" of any of the content on "
+"the visual content on this website."
+msgstr ""
+
+#: templates/catalog/page_disclaimer.html:23
+#, python-format
+msgid ""
+"For any questions please contact us using the <a "
+"href=\"%(formlink)s\">following form</a>."
+msgstr ""
+
+#: templates/catalog/page_disclaimer.html:28
+msgid "I confirm I read and accept everything mentioned above"
+msgstr ""
+
+#: templates/catalog/page_disclaimer.html:29
+msgid "I dont agree with the rules"
+msgstr ""
+
+#: templates/catalog/video.html:3
+#, python-format
+msgid " %(title)s video"
+msgstr ""
+
+#: templates/catalog/video.html:16
+msgid "Posted under categories"
+msgstr ""
+
+#: templates/catalog/video.html:28
+msgid "Starring"
+msgstr ""
+
+#: templates/catalog/video.html:39
+msgid "Video information"
+msgstr ""
+
+#: templates/catalog/video.html:41
+msgid "Source: "
+msgstr ""
+
+#: templates/catalog/video.html:42
+msgid "Duration: "
+msgstr ""
+
+#: templates/catalog/video.html:43
+msgid "Addition date: "
+msgstr ""
+
+#: templates/catalog/video.html:48
+msgid "Actions"
+msgstr ""
+
+#: templates/catalog/video.html:50
+msgid "Report video not playing"
+msgstr ""
+
+#: templates/catalog/videos.html:8
+#, python-format
+msgid "Videos under category %(category)s"
+msgstr ""
+
+#: templates/catalog/videos.html:13
+#, python-format
+msgid "Videos starring %(name)s"
+msgstr ""
+
+#: templates/catalog/videos.html:36
+#, python-format
+msgid "from %(masturbator)s"
 msgstr ""
 

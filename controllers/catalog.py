@@ -76,9 +76,24 @@ def tag(id, slug, page=1):
 	page = tag.videos.order_by(order_by).paginate(page=page, per_page=40)
 
 	return render_template (
-		"catalog/tag.html", 
+		"catalog/videos.html", 
 		page=page,
 		tag=tag
+	)
+
+@catalog.route("/star/<int:id>/<slug>/")
+@catalog.route("/star/<int:id>/<slug>/page/<int:page>/")
+def star(id, slug, page=1):
+	star = VideoStar.query.get_or_404(id)
+
+	order_by = db.desc(Video.import_date)
+
+	page = star.videos.order_by(order_by).paginate(page=page, per_page=40)
+
+	return render_template (
+		"catalog/videos.html", 
+		page=page,
+		star=star
 	)
 
 @catalog.route("/video/<int:id>/<slug>.html")
@@ -96,16 +111,18 @@ def video(id, slug):
 
 @catalog.route("/report_video_not_playing/", methods=["POST"])
 def report_video_not_playing():
+	from tasks import check_video_availability
+
 	if not "id" in request.form: 
 		return abort(404)
 
 	video = Video.query.get_or_404(request.form["id"])
 
-	# TODO: add celery function for checking the video status
+	check_video_availability.delay(video.id)
 
 	return gettext("Thank you for your report, our robot will recheck that video automatically.")
 
-@catalog.route("/page/<slug>.html", methods=["GET", "POST"])
+@catalog.route("/<slug>.html", methods=["GET", "POST"])
 def page(slug):
 	form = None
 

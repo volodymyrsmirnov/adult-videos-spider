@@ -48,9 +48,9 @@ class Video(db.Model):
 
 	views = db.Column(db.BigInteger, default=0)
 
-	tags = db.relationship('VideoTag', secondary=video_tags, backref=db.backref('videos', lazy='dynamic'))
-	thumbs = db.relationship('VideoThumb', backref='video', lazy='dynamic')
-	stars = db.relationship('VideoStar', secondary=video_stars, backref=db.backref('videos', lazy='dynamic'))
+	tags = db.relationship('VideoTag', secondary=video_tags, backref=db.backref('videos', lazy='dynamic'), lazy='dynamic')
+	thumbs = db.relationship('VideoThumb', backref=db.backref('video', cascade='all,delete'), lazy='dynamic')
+	stars = db.relationship('VideoStar', secondary=video_stars, backref=db.backref('videos', lazy='dynamic'), lazy='dynamic')
 
 	@property
 	def slug(self):

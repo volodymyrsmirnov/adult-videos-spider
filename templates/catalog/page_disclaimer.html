@@ -3,16 +3,24 @@
 {% block subtitle %}{{ _("Disclaimer") }}{% endblock %}
 
 {% block content %}
-	<p>{{ _("This website is intended for mature adults 18 years old and older and contains explicit material, content and language. Do not view this website if you are under the age of 18 or are not of legal age in the locale in which you preside or are viewing this material. Do not view this material if you live in a state or country which has laws prohibiting such to such material. This site is an adult only site and is NSFW (Not Safe For Work).") }}</p>
+	<p>
+		{{ _("This website is intended for mature adults 18 years old and older and contains explicit material, content and language. Do not view this website if you are under the age of 18 or are not of legal age in the locale in which you preside or are viewing this material. Do not view this material if you live in a state or country which has laws prohibiting such to such material. This site is an adult only site and is NSFW (Not Safe For Work).") }}
+	</p>
 
-	<p>{{ _("MyLust.xxx is a fully automatic adult search and index engine focused on free porn tube clips. We do not own, produce or host the videos embeded on this website. All of the videos embeded on our site are hosted by websites that are not under our control. The linked videos are automatically gathered and added into our system by our spider scripts. Thumbnails are automatically generated from the videos.") }}</p>
+	<p>
+		{{ _("MyLust.xxx is a fully automatic adult search and index engine focused on free porn tube clips. We do not own, produce or host the videos embeded on this website. All of the videos embeded on our site are hosted by websites that are not under our control. The linked videos are automatically gathered and added into our system by our spider scripts. Thumbnails are automatically generated from the videos.") }}
+	</p>
 
-	<p>{{ _("All models and subjects are assumed to be at least 18 years old and the inclusion on this site, nor any editorial comments, should infer their sexual orientation, beliefs, lifestyle or anything pertaining to their being. MyLust.xxx has a zero-tolerance policy against illegal pornography. We take no responsibility for the content on any website which we link to.") }}</p>
+	<p>
+		{{ _("All models and subjects are assumed to be at least 18 years old and the inclusion on this site, nor any editorial comments, should infer their sexual orientation, beliefs, lifestyle or anything pertaining to their being. MyLust.xxx has a zero-tolerance policy against illegal pornography. We take no responsibility for the content on any website which we link to.") }}
+	</p>
 
-	<p>{{ _("Regarding 18 U.S.C. Section 2257 and 28 C.F.R. Part 75, the owners of this website are not the \"primary producers\" of any of the content on the visual content on this website.") }}</p>
+	<p>
+		{{ _("Regarding 18 U.S.C. Section 2257 and 28 C.F.R. Part 75, the owners of this website are not the \"primary producers\" of any of the content on the visual content on this website.") }}
+	</p>
 
-	<p>{{ _("For any questions please contact") }}
-		inf<a href="http://www.google.com/recaptcha/mailhide/d?k=012Xn0Inr4QdKCtEA_vo9u0A==&amp;c=2x_P2FYaKIvkBMrpwTrsTw==" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\075012Xn0Inr4QdKCtEA_vo9u0A\75\75\46c\0752x_P2FYaKIvkBMrpwTrsTw\75\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">...</a>@mylust.xxx
+	<p>
+		{{ _("For any questions please contact us using the <a href=\"%(formlink)s\">following form</a>.", formlink=url_for("catalog.page", slug="contact_us")) }}
 	</p>
 
 

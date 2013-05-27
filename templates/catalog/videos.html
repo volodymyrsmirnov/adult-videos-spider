@@ -4,11 +4,23 @@
 
 {% block title %}{{ _("MyLust.xxx best free adult porn videos") }}{% endblock %}
 
-{% block subtitle %}{{ _("Videos under category %(category)s", category=_(tag.name).title()) }}{% endblock %}
+{% if tag %}
+	{% set subtitle = _("Videos under category %(category)s", category=_(tag.name).title()) %}
+	{% set active = "catalog.tag" %}
+	{% set id = tag.id %}
+	{% set slug = tag.slug %}
+{% elif star %}
+	{% set subtitle = _("Videos starring %(name)s", name=star.name.title()) %}
+	{% set active = "catalog.star" %}
+	{% set id = star.id %}
+	{% set slug = star.slug %}
+{% endif %}
+
+{% block subtitle %}{{ subtitle }}{% endblock %}
 
 {% block content %}
 
-	{{ render_pagination(page, "catalog.tag", id=tag.id, slug=tag.slug) }}
+	{{ render_pagination(page, active, id=id, slug=slug) }}
 
 	<ul class="videos">
 
@@ -21,7 +33,7 @@
 					<div class="name" title="{{ video.title }}">{{ video.title }}</div>
 
 					<div class="details">
-						{{ _("From %(masturbator)s", masturbator=video.masturbator.title()) }} &#8226; {{ video.duration_formated }}
+						{{ _("from %(masturbator)s", masturbator=video.masturbator.title()) }} &#8226; {{ video.duration_formated }}
 					</div>
 				</a>
 			</li>
@@ -30,5 +42,5 @@
 
 	<div class="clear"></div>
 
-	{{ render_pagination(page, "catalog.tag", id=tag.id, slug=tag.slug) }}
+	{{ render_pagination(page, active, id=id, slug=slug) }}
 {% endblock %}

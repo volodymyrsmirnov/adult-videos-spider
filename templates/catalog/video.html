@@ -11,20 +11,29 @@
 </div>
 
 <div class="information">
-	{#
-	<p>
-		{{ _("Video from the site") }} <a href="{{ video.remote_url }}" target="_blank">{{ video.masturbator.capitalize() }}</a>.
-	</p>
-	#}
+
 	<div class="group">
 		<div class="title">{{ _("Posted under categories") }}</div>
 	
-		{% for tag in video.tags %}
+		{% for tag in video.tags.all() %}
 			<div class="videotag">
 				<a href="{{ url_for("catalog.tag", id=tag.id, slug=tag.slug) }}">{{ _(tag.name).title() }}</a>
 			</div>
 		{% endfor %}
 	</div>
+
+
+	{% if video.stars.count() > 0 %}
+		<div class="group">
+			<div class="title">{{ _("Starring") }}</div>
+		
+			{% for star in video.stars.all() %}
+				<div class="videotag">
+					<a href="{{ url_for("catalog.star", id=star.id, slug=star.slug) }}">{{ _(star.name).title() }}</a>
+				</div>
+			{% endfor %}
+		</div>
+	{% endif %}
 
 	<div class="group">
 		<div class="title">{{ _("Video information") }}</div>
