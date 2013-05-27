@@ -4,16 +4,52 @@
 """
 Catalog main view controller
 """
+import math
+import datetime
+
 from flask import *
+
+from slugify import slugify
 
 catalog = Blueprint('catalog', __name__, template_folder='templates')
 
 from models import *
 from forms import ContactForm, contact_topics
-from application import cache, app, mail
+from application import cache, app, mail, redis
 from flask.ext.babel import gettext
 from flask.ext.babel import refresh as language_refresh
 from flask.ext.mail import Message
+
+from translate import Translator
+
+def translate_video_title(what):
+	to_language = g.lang_code
+
+	if to_language == "en":
+		return what
+
+	key = "{0}_{1}".format(what, to_language)
+
+	translation = redis.get(key)
+
+	if translation:
+		return translation
+
+	translator = Translator(to_lang=to_language)
+	
+	try:
+		translation = translator.translate(what)
+		redis.set(key, translation)
+	except:
+		translation = what
+
+	return translation
+
+@catalog.context_processor
+def context_processor():
+	return dict(
+		translate_video_title=translate_video_title,
+	)
 
 @catalog.url_defaults
 def add_language_code(endpoint, values):
@@ -50,6 +86,57 @@ def index():
 		tags=get_list_of_tags(), 
 	)
 
+@catalog.route("/sitemaps/all.xml")
+@catalog.route("/sitemaps/<int:id>.xml")
+@cache.cached(timeout=86400)
+def sitemap(id=None):
+	items_count = Video.query.count()
+	sitemaps_count = math.ceil(items_count / 10000.0)
+
+	if id == None:
+		response = render_template(
+			"catalog/sitemap_index.xml", 
+			sitemaps_count=sitemaps_count,
+			now=datetime.datetime.now()
+		)
+
+		return Response(response, mimetype='text/xml')
+	elif id in range(0, int(sitemaps_count)):
+		videos = db.session.query(Video.id, Video.title, Video.import_date).order_by(db.asc(Video.import_date)).offset(id * 10000).limit(10000).all()
+
+		response = render_template(
+			"catalog/sitemap.xml", 
+			videos=videos,
+			slugify=slugify
+		)
+
+		return Response(response, mimetype='text/xml')
+	else:
+		return abort(404)
+
+@catalog.route("/search/", methods=["GET", "POST"])
+@catalog.route("/search/<what>/")
+@catalog.route("/search/<what>/page/<int:page>/")
+def search(what=None, page=1):
+	if request.method == "POST" and "search_term" in request.values:
+		return redirect(url_for("catalog.search", what=request.values["search_term"], _method="GET"))
+
+	if len(what) not in range(4, 32):
+		return abort(404)
+
+	search_ilike = "%{0}%".format(what)
+
+	page = Video.query.filter(
+		(Video.title.ilike(search_ilike)) |
+		(Video.tags.any(VideoTag.name.ilike(search_ilike))) |
+		(Video.stars.any(VideoStar.name.ilike(search_ilike)))
+	).order_by(Video.import_date).paginate(page=page, per_page=40)
+
+	return render_template (
+		"catalog/videos.html", 
+		search_term=what,
+		page=page,
+	)	
 
 @catalog.route("/tag/thumb/<int:id>/<slug>.jpg")
 @cache.cached(timeout=3600)
@@ -149,4 +236,8 @@ def page(slug):
 
 			return redirect(url_for("catalog.page", slug="contact_us"))
 	
-	return render_template("catalog/page_{0}.html".format(slug), form=form)
+	return render_template (
+		"catalog/page_{0}.html".format(slug), 
+		form=form,
+		hide_search=True
+	)

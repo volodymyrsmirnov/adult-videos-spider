@@ -8,6 +8,7 @@ flask-assets
 flask-cache
 flask-wtf
 flask-mail
+flask-and-redis
 
 celery
 requests
@@ -15,4 +16,5 @@ pygeoip
 jsmin
 cssmin
 alembic
+translate
 python-slugify

@@ -47,7 +47,50 @@ $one_column_size: 960px;
 
 	.subsubtitle {
 		font-size: 18px;
+		margin-bottom: 15px;
+	}
+
+	.search {
+		text-align: center;
 		margin-bottom: 20px;
+
+		width: 250px;
+
+		margin: 0 auto;
+
+		input {
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			display: block;
+		}
+
+
+		.search_term {
+			text-align: center;
+			padding: 5px;
+			border: 1px solid #000000;
+			outline: none;
+			height: 30px;
+			border-right: 0px;
+			float: left;
+		}
+
+		.search_submit {
+			height: 30px;
+			width: 30px;
+			float: right;
+			background: #ffffff;
+			border: 1px solid #000000;
+			border-left: 0px;
+
+
+
+			background-image: url(/static/img/search.png);
+			background-repeat: no-repeat;
+			background-position: 3px center;
+		}
+
 	}
 }
 
@@ -58,6 +101,13 @@ $one_column_size: 960px;
 		left: auto;
 		right: auto;
 	};
+
+	.search_empty {
+		text-align: center;
+		padding: 10px;
+		font-size: 25px;
+		margin-bottom: 10px;
+	}
 
 	.contactform {
 

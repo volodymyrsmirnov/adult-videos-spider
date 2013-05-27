@@ -4,8 +4,13 @@
 """
 MyLust main handler
 """
+import sys
+
+reload(sys)
+sys.setdefaultencoding("UTF-8")
 
 import os
+# import pygeoip
 
 from flask import *
 from flask.ext.babel import Babel
@@ -13,6 +18,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.assets import Environment, Bundle
 from flask.ext.cache import Cache
 from flask.ext.mail import Mail
+from flask.ext.redis import Redis
 
 app = Flask(__name__)
 
@@ -21,17 +27,20 @@ if os.path.exists(".production"):
 else: 
 	app.config.from_object('configs.Testing')
 
+# app.gi4 = pygeoip.GeoIP(app.config['GEOIP_V4_DB_PATH'])
+
 babel = Babel(app)
 db = SQLAlchemy(app)
 cache = Cache(app)
 assets = Environment(app)
 mail = Mail(app)
+redis = Redis(app)
 
 from controllers.catalog import catalog
 
 from models import *
 
-app.register_blueprint(catalog, url_prefix="/<lang_code>")
+app.register_blueprint(catalog, url_prefix='/<lang_code>')
 
 css = Bundle(
 
@@ -72,6 +81,15 @@ def redirect_to_language():
 	"""
 	best_language = request.accept_languages.best_match(app.config.get("LANGUAGES").keys())
 	return redirect(url_for("catalog.index", lang_code=best_language), code=302)
+
+@app.route("/robots.txt")
+def robots():
+	"""
+	Generate robots.txt
+	"""
+	response= make_response(render_template("robots.txt"))
+	response.headers['Content-Type'] = 'text/plain'
+	return response
 
 @babel.localeselector
 def get_locale():

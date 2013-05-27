@@ -6,21 +6,26 @@
 
 {% if tag %}
 	{% set subtitle = _("Videos under category %(category)s", category=_(tag.name).title()) %}
-	{% set active = "catalog.tag" %}
-	{% set id = tag.id %}
-	{% set slug = tag.slug %}
+	{% set pagination = render_pagination(page, "catalog.tag", id=tag.id, slug=tag.slug) %}
 {% elif star %}
 	{% set subtitle = _("Videos starring %(name)s", name=star.name.title()) %}
-	{% set active = "catalog.star" %}
-	{% set id = star.id %}
-	{% set slug = star.slug %}
+	{% set pagination = render_pagination(page, "catalog.star", id=star.id, slug=star.slug) %}
+{% elif search_term %}
+	{% set subtitle = _("Search results for query \"%(query)s\"", query=search_term) %}
+	{% set pagination = render_pagination(page, "catalog.search", what=search_term) %}
 {% endif %}
 
 {% block subtitle %}{{ subtitle }}{% endblock %}
 
 {% block content %}
 
-	{{ render_pagination(page, active, id=id, slug=slug) }}
+	{{ pagination }}
+
+	{% if page.total == 0 %}
+		<div class="search_empty">
+			{{ _("We found no videos matching your query, change it and try one more time") }}
+		</dir>
+	{% endif %}
 
 	<ul class="videos">
 
@@ -29,8 +34,8 @@
 				<a href="{{ url_for("catalog.video", id=video.id, slug=video.slug) }}">
 					{% set images = video.thumbs.all() %}
 
-					<img class="thumb" src="{{ url_for("static", filename="img/blank.gif") }}" data-src="{{ images.pop(0).url }}" data-slides="{% for image in images %}{{ image.url }}|{% endfor %}" alt="{{ video.title }}">
-					<div class="name" title="{{ video.title }}">{{ video.title }}</div>
+					<img class="thumb" src="{{ url_for("static", filename="img/blank.gif") }}" data-src="{{ images.pop(0).url }}" data-slides="{% for image in images %}{{ image.url }}|{% endfor %}" alt="{{ translate_video_title(video.title).capitalize() }}">
+					<div class="name" title="{{ translate_video_title(video.title).capitalize() }}">{{ translate_video_title(video.title).capitalize() }}</div>
 
 					<div class="details">
 						{{ _("from %(masturbator)s", masturbator=video.masturbator.title()) }} &#8226; {{ video.duration_formated }}
@@ -42,5 +47,6 @@
 
 	<div class="clear"></div>
 
-	{{ render_pagination(page, active, id=id, slug=slug) }}
+	{{ pagination }}
+
 {% endblock %}

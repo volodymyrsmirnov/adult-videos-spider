@@ -1,0 +1,11 @@
+User-agent: *
+
+Host: mylust.xxx
+Crawl-delay: 0.5
+
+Allow: /
+Disallow: /*/search/*
+
+{% for lang in config["LANGUAGES"].keys() %}
+Sitemap: {{ url_for("catalog.sitemap", lang_code=lang, _external=True) }}
+{% endfor %}

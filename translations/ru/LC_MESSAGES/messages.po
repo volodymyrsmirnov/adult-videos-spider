@@ -2,27 +2,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MyLust 1.0.0\n"
 "Report-Msgid-Bugs-To: vladimir@smirnov.im\n"
-"POT-Creation-Date: 2013-05-27 15:48+0300\n"
-"PO-Revision-Date: 2013-05-27 15:52+0200\n"
+"POT-Creation-Date: 2013-05-27 22:29+0300\n"
+"PO-Revision-Date: 2013-05-27 22:30+0200\n"
 "Last-Translator: Vladimir Smirnov <vladimir@smirnov.im>\n"
 "Language-Team: ru <LL@li.org>\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 "X-Generator: Poedit 1.5.5\n"
-"Language: Russian\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 
 #: configs.py:24
 msgid "English"
 msgstr "Английский"
-
-#: configs.py:25
-msgid "Russian"
-msgstr "Русский"
 
 #: forms.py:15
 msgid "General questions"
@@ -32,11 +26,11 @@ msgstr "Общие вопросы"
 msgid "Partnership and advertising offers"
 msgstr "Реклама и предложения сотрудничества"
 
-#: forms.py:17 templates/catalog/video.html:51
+#: forms.py:17 templates/catalog/video.html:50
 msgid "Report abusive content"
 msgstr "Сообщить о незаконном содержании"
 
-#: forms.py:18 templates/catalog/video.html:52
+#: forms.py:18 templates/catalog/video.html:51
 msgid "Report copyright infringement"
 msgstr "Сообщить о нарушении авторских прав"
 
@@ -50,7 +44,7 @@ msgstr "Это поле обязательно к заполнению."
 
 #: forms.py:27
 msgid "Reply back to email"
-msgstr "Ваш email для обратного ответа"
+msgstr "Ваш email для обратной связи"
 
 #: forms.py:28
 msgid "This should be a valid email"
@@ -68,7 +62,7 @@ msgstr "Сообщение"
 msgid "Please enter the CAPTCHA"
 msgstr "Пожалуйста, введите CAPTCHA"
 
-#: controllers/catalog.py:123
+#: controllers/catalog.py:210
 msgid ""
 "Thank you for your report, our robot will recheck that video automatically."
 msgstr ""
@@ -78,7 +72,7 @@ msgstr ""
 #: templates/base.html:4 templates/catalog/index.html:3
 #: templates/catalog/videos.html:5
 msgid "MyLust.xxx best free adult porn videos"
-msgstr "MyLust.xxx луччшее бесплатное порно и фильмы для взрослых "
+msgstr "MyLust.xxx лучшее бесплатное порно и фильмы для взрослых "
 
 #: templates/base.html:7
 msgid ""
@@ -97,28 +91,39 @@ msgstr ""
 "видео и порно на лучшем бесплатном сайте в интернете с самыми горячими "
 "членами и кисками. "
 
-#: templates/base.html:26
+#: templates/base.html:17
+msgid ""
+"Sorry, but the search query must contain more then 3 and less then 32 "
+"symbols."
+msgstr ""
+"Простите, но Ваш поисковой запрос должен быть длиннее 3 и короче 32 символов"
+
+#: templates/base.html:34
 msgid "MyLust.XXX"
 msgstr "MyLust.XXX"
 
-#: templates/base.html:27
+#: templates/base.html:35
 msgid "The best place to satisfy your lust in the net"
-msgstr "Создан чтобы удовлетворять твою похоть"
+msgstr "Создан чтобы удовлетворить твою похоть"
 
-#: templates/base.html:28
+#: templates/base.html:36
 msgid "Free daily updated adult video catalog"
 msgstr "Бесплатный ежедневно обновляемый каталог видео для взрослых"
 
-#: templates/base.html:36
+#: templates/base.html:41
+msgid "search in video database"
+msgstr "найти видео"
+
+#: templates/base.html:54
 #, python-format
 msgid "Switch language to %(locale)s"
 msgstr "Переключить язык на %(locale)s"
 
-#: templates/base.html:47 templates/catalog/page_disclaimer.html:3
+#: templates/base.html:65 templates/catalog/page_disclaimer.html:3
 msgid "Disclaimer"
 msgstr "Правовая информация"
 
-#: templates/base.html:47 templates/catalog/page_contact_us.html:5
+#: templates/base.html:65 templates/catalog/page_contact_us.html:5
 msgid "Contact us"
 msgstr "Связаться с нами"
 
@@ -129,6 +134,518 @@ msgstr "&lt;"
 #: templates/macros.html:37
 msgid "next"
 msgstr "&gt;"
+
+#: templates/catalog/categories_for_translation.html:1
+msgid "couple"
+msgstr "семейные пары"
+
+#: templates/catalog/categories_for_translation.html:2
+msgid "small tits"
+msgstr "маленькие сиськи"
+
+#: templates/catalog/categories_for_translation.html:3
+msgid "teen"
+msgstr "подростки"
+
+#: templates/catalog/categories_for_translation.html:4
+msgid "funny"
+msgstr "смешное"
+
+#: templates/catalog/categories_for_translation.html:5
+msgid "striptease"
+msgstr "стриптиз"
+
+#: templates/catalog/categories_for_translation.html:6
+msgid "caucasian"
+msgstr "европейцы"
+
+#: templates/catalog/categories_for_translation.html:7
+msgid "cum shot"
+msgstr "камшот"
+
+#: templates/catalog/categories_for_translation.html:8
+msgid "deepthroat"
+msgstr "глубокая глотка"
+
+#: templates/catalog/categories_for_translation.html:9
+msgid "oral sex"
+msgstr "оральный секс"
+
+#: templates/catalog/categories_for_translation.html:10
+msgid "blowjob"
+msgstr "минет"
+
+#: templates/catalog/categories_for_translation.html:11
+msgid "blonde"
+msgstr "блондинки"
+
+#: templates/catalog/categories_for_translation.html:12
+msgid "piercings"
+msgstr "пирсинг"
+
+#: templates/catalog/categories_for_translation.html:13
+msgid "swallow"
+msgstr "проглот"
+
+#: templates/catalog/categories_for_translation.html:14
+msgid "pornstar"
+msgstr "порнозвезды"
+
+#: templates/catalog/categories_for_translation.html:15
+msgid "vaginal sex"
+msgstr "вагинальный секс"
+
+#: templates/catalog/categories_for_translation.html:16
+msgid "masturbation"
+msgstr "мастурбация"
+
+#: templates/catalog/categories_for_translation.html:17
+msgid "outdoor"
+msgstr "на улице"
+
+#: templates/catalog/categories_for_translation.html:18
+msgid "brunette"
+msgstr "брюнетки"
+
+#: templates/catalog/categories_for_translation.html:19
+msgid "licking vagina"
+msgstr "лизание киски"
+
+#: templates/catalog/categories_for_translation.html:20
+msgid "squirting"
+msgstr "сквиртинг"
+
+#: templates/catalog/categories_for_translation.html:21
+msgid "vaginal masturbation"
+msgstr "вагинальная дрочка"
+
+#: templates/catalog/categories_for_translation.html:22
+msgid "gagging"
+msgstr "до тошноты"
+
+#: templates/catalog/categories_for_translation.html:23
+msgid "interracial"
+msgstr "межрассовое"
+
+#: templates/catalog/categories_for_translation.html:24
+msgid "asian"
+msgstr "азиатки"
+
+#: templates/catalog/categories_for_translation.html:25
+msgid "handjob"
+msgstr "дрочка"
+
+#: templates/catalog/categories_for_translation.html:26
+msgid "latin"
+msgstr "латиносы"
+
+#: templates/catalog/categories_for_translation.html:27
+msgid "shaved"
+msgstr "бритенькие"
+
+#: templates/catalog/categories_for_translation.html:28
+msgid "tattoos"
+msgstr "татуированные"
+
+#: templates/catalog/categories_for_translation.html:29
+msgid "pov"
+msgstr "от первого лица"
+
+#: templates/catalog/categories_for_translation.html:30
+msgid "black-haired"
+msgstr "черные волосы"
+
+#: templates/catalog/categories_for_translation.html:31
+msgid "webcam"
+msgstr "вебкамера"
+
+#: templates/catalog/categories_for_translation.html:32
+msgid "solo girl"
+msgstr "девушки одни"
+
+#: templates/catalog/categories_for_translation.html:33
+msgid "amateur"
+msgstr "домашнее"
+
+#: templates/catalog/categories_for_translation.html:34
+msgid "lingerie"
+msgstr "белье"
+
+#: templates/catalog/categories_for_translation.html:35
+msgid "toys"
+msgstr "игрушки"
+
+#: templates/catalog/categories_for_translation.html:36
+msgid "glamour"
+msgstr "гламур"
+
+#: templates/catalog/categories_for_translation.html:37
+msgid "lesbian"
+msgstr "лесбиянки"
+
+#: templates/catalog/categories_for_translation.html:38
+msgid "rimming"
+msgstr "римминг"
+
+#: templates/catalog/categories_for_translation.html:39
+msgid "anal sex"
+msgstr "анальный секс"
+
+#: templates/catalog/categories_for_translation.html:40
+msgid "stockings"
+msgstr "чулки"
+
+#: templates/catalog/categories_for_translation.html:41
+msgid "kissing"
+msgstr "поцелуи"
+
+#: templates/catalog/categories_for_translation.html:42
+msgid "double penetration"
+msgstr "в две дырки"
+
+#: templates/catalog/categories_for_translation.html:43
+msgid "threesome"
+msgstr "втроем"
+
+#: templates/catalog/categories_for_translation.html:44
+msgid "mature"
+msgstr "зрелые"
+
+#: templates/catalog/categories_for_translation.html:45
+msgid "bikini"
+msgstr "бикини"
+
+#: templates/catalog/categories_for_translation.html:46
+msgid "group sex"
+msgstr "групповуха"
+
+#: templates/catalog/categories_for_translation.html:47
+msgid "public"
+msgstr "на людях"
+
+#: templates/catalog/categories_for_translation.html:48
+msgid "big tits"
+msgstr "большие дойки"
+
+#: templates/catalog/categories_for_translation.html:49
+msgid "spycam"
+msgstr "подглядывание"
+
+#: templates/catalog/categories_for_translation.html:50
+msgid "party"
+msgstr "вечеринки"
+
+#: templates/catalog/categories_for_translation.html:51
+msgid "titfuck"
+msgstr "членом в дойки"
+
+#: templates/catalog/categories_for_translation.html:52
+msgid "anal masturbation"
+msgstr "анальная дрочка"
+
+#: templates/catalog/categories_for_translation.html:53
+msgid "cum swap"
+msgstr "обмен спермой"
+
+#: templates/catalog/categories_for_translation.html:54
+msgid "bathroom"
+msgstr "ванная"
+
+#: templates/catalog/categories_for_translation.html:55
+msgid "car"
+msgstr "в машине"
+
+#: templates/catalog/categories_for_translation.html:56
+msgid "position 69"
+msgstr "позиция 69"
+
+#: templates/catalog/categories_for_translation.html:57
+msgid "spectacular"
+msgstr "наблюдение"
+
+#: templates/catalog/categories_for_translation.html:58
+msgid "uniform"
+msgstr "в форме"
+
+#: templates/catalog/categories_for_translation.html:59
+msgid "domination"
+msgstr "доминирование"
+
+#: templates/catalog/categories_for_translation.html:60
+msgid "hospital"
+msgstr "в больнице"
+
+#: templates/catalog/categories_for_translation.html:61
+msgid "nurse"
+msgstr "медсестра"
+
+#: templates/catalog/categories_for_translation.html:62
+msgid "fisting"
+msgstr "фистинг"
+
+#: templates/catalog/categories_for_translation.html:63
+msgid "glasses"
+msgstr "очки"
+
+#: templates/catalog/categories_for_translation.html:64
+msgid "gym"
+msgstr "тренажерный зал"
+
+#: templates/catalog/categories_for_translation.html:65
+msgid "toilet"
+msgstr "туалет"
+
+#: templates/catalog/categories_for_translation.html:66
+msgid "pool"
+msgstr "басейн"
+
+#: templates/catalog/categories_for_translation.html:67
+msgid "redhead"
+msgstr "рыжие"
+
+#: templates/catalog/categories_for_translation.html:68
+msgid "facial"
+msgstr "на лицо"
+
+#: templates/catalog/categories_for_translation.html:69
+msgid "high heels"
+msgstr "высокие каблуки"
+
+#: templates/catalog/categories_for_translation.html:70
+msgid "russian"
+msgstr "русское"
+
+#: templates/catalog/categories_for_translation.html:71
+msgid "footjob"
+msgstr "дрочка ногами"
+
+#: templates/catalog/categories_for_translation.html:72
+msgid "fetish"
+msgstr "фетиш"
+
+#: templates/catalog/categories_for_translation.html:73
+msgid "compilation"
+msgstr "подборки"
+
+#: templates/catalog/categories_for_translation.html:74
+msgid "strap-on"
+msgstr "со страпоном"
+
+#: templates/catalog/categories_for_translation.html:75
+msgid "celebrity"
+msgstr "знаменитости"
+
+#: templates/catalog/categories_for_translation.html:76
+msgid "vintage"
+msgstr "винтаж"
+
+#: templates/catalog/categories_for_translation.html:77
+msgid "hairy"
+msgstr "волосатые"
+
+#: templates/catalog/categories_for_translation.html:78
+msgid "solo gay"
+msgstr "геи одни"
+
+#: templates/catalog/categories_for_translation.html:79
+msgid "gay"
+msgstr "геи"
+
+#: templates/catalog/categories_for_translation.html:80
+msgid "chubby"
+msgstr "пухленькие"
+
+#: templates/catalog/categories_for_translation.html:81
+msgid "wanking"
+msgstr "онанизм"
+
+#: templates/catalog/categories_for_translation.html:82
+msgid "skinny"
+msgstr "худые"
+
+#: templates/catalog/categories_for_translation.html:83
+msgid "cream pie"
+msgstr "сперма в киске"
+
+#: templates/catalog/categories_for_translation.html:84
+msgid "big cock"
+msgstr "огромный член"
+
+#: templates/catalog/categories_for_translation.html:85
+msgid "ebony"
+msgstr "черные"
+
+#: templates/catalog/categories_for_translation.html:86
+msgid "muscular"
+msgstr "качки"
+
+#: templates/catalog/categories_for_translation.html:87
+msgid "german"
+msgstr "немецкое"
+
+#: templates/catalog/categories_for_translation.html:88
+msgid "peeing"
+msgstr "писающие"
+
+#: templates/catalog/categories_for_translation.html:89
+msgid "bisexual"
+msgstr "бисексуалы"
+
+#: templates/catalog/categories_for_translation.html:90
+msgid "cartoon"
+msgstr "мультфильмы"
+
+#: templates/catalog/categories_for_translation.html:91
+msgid "gangbang"
+msgstr "изнасилование"
+
+#: templates/catalog/categories_for_translation.html:92
+msgid "big ass"
+msgstr "большой зад"
+
+#: templates/catalog/categories_for_translation.html:93
+msgid "spanking"
+msgstr "шлепки"
+
+#: templates/catalog/categories_for_translation.html:94
+msgid "latex"
+msgstr "латекс"
+
+#: templates/catalog/categories_for_translation.html:95
+msgid "maid"
+msgstr "горничные"
+
+#: templates/catalog/categories_for_translation.html:96
+msgid "school"
+msgstr "в школе"
+
+#: templates/catalog/categories_for_translation.html:97
+msgid "japanese"
+msgstr "японское"
+
+#: templates/catalog/categories_for_translation.html:98
+msgid "censored"
+msgstr "цензура"
+
+#: templates/catalog/categories_for_translation.html:99
+msgid "solo male"
+msgstr "мужчины одни"
+
+#: templates/catalog/categories_for_translation.html:100
+msgid "oriental"
+msgstr "восточное"
+
+#: templates/catalog/categories_for_translation.html:101
+msgid "gay couple"
+msgstr "гей пары"
+
+#: templates/catalog/categories_for_translation.html:102
+msgid "bondage"
+msgstr "бондаж"
+
+#: templates/catalog/categories_for_translation.html:103
+msgid "office"
+msgstr "в офисе"
+
+#: templates/catalog/categories_for_translation.html:104
+msgid "secretary"
+msgstr "секретарши"
+
+#: templates/catalog/categories_for_translation.html:105
+msgid "pantyhose"
+msgstr "трусики"
+
+#: templates/catalog/categories_for_translation.html:106
+msgid "bareback"
+msgstr "геи верхом"
+
+#: templates/catalog/categories_for_translation.html:107
+msgid "romantic"
+msgstr "романтика"
+
+#: templates/catalog/categories_for_translation.html:108
+msgid "fat"
+msgstr "жирные"
+
+#: templates/catalog/categories_for_translation.html:109
+msgid "shemale"
+msgstr "девушки с членом"
+
+#: templates/catalog/categories_for_translation.html:110
+msgid "gay group sex"
+msgstr "гей групповуха"
+
+#: templates/catalog/categories_for_translation.html:111
+msgid "indian"
+msgstr "индийское"
+
+#: templates/catalog/categories_for_translation.html:112
+msgid "bukkake"
+msgstr "буккаке"
+
+#: templates/catalog/categories_for_translation.html:113
+msgid "animated"
+msgstr "анимация"
+
+#: templates/catalog/categories_for_translation.html:114
+msgid "bbw"
+msgstr "толстушки"
+
+#: templates/catalog/categories_for_translation.html:115
+msgid "milf"
+msgstr "мамаши"
+
+#: templates/catalog/categories_for_translation.html:116
+msgid "femdom"
+msgstr "феминизм"
+
+#: templates/catalog/categories_for_translation.html:117
+msgid "massage"
+msgstr "массаж"
+
+#: templates/catalog/categories_for_translation.html:118
+msgid "police"
+msgstr "полиция"
+
+#: templates/catalog/categories_for_translation.html:119
+msgid "pregnant"
+msgstr "беременные"
+
+#: templates/catalog/categories_for_translation.html:120
+msgid "granny"
+msgstr "бабушки"
+
+#: templates/catalog/categories_for_translation.html:121
+msgid "glory hole"
+msgstr "сквозь дырку"
+
+#: templates/catalog/categories_for_translation.html:122
+msgid "hentai"
+msgstr "хентай"
+
+#: templates/catalog/categories_for_translation.html:123
+msgid "behind the scenes"
+msgstr "за занавесом"
+
+#: templates/catalog/categories_for_translation.html:124
+msgid "boots"
+msgstr "обувь"
+
+#: templates/catalog/categories_for_translation.html:125
+msgid "cfnm"
+msgstr "раздевание мужчин"
+
+#: templates/catalog/categories_for_translation.html:126
+msgid "midget"
+msgstr "карлики"
+
+#: templates/catalog/categories_for_translation.html:127
+msgid "young & old"
+msgstr "молодые и пожилые"
+
+#: templates/catalog/categories_for_translation.html:128
+msgid "tribbing"
+msgstr "ножницы"
 
 #: templates/catalog/index.html:5
 msgid "Popular categories"
@@ -160,14 +677,14 @@ msgid ""
 "you live in a state or country which has laws prohibiting such to such "
 "material. This site is an adult only site and is NSFW (Not Safe For Work)."
 msgstr ""
-"Этот сайт предназначен исключительно для людей от 18 лет и старше. Он "
-"содержит откровенные (эротические, порнографические) материалы и нецензурную "
-"речь. Пожалуйста, не просматривайте материалы сайта, если вам меньше 18 лет "
-"либо же вы не достигли возраста, который установлен соответствующими "
-"законами страны или региона вашего текущего месторасположения. Не "
+"Этот сайт предназначен исключительно для людей старше 18 лет. Он содержит "
+"откровенные (в том числе и эротические, порнографические) материалы и "
+"нецензурную лексику. Пожалуйста, не просматривайте материалы сайта, если вам "
+"меньше 18 лет либо же вы не достигли возраста, который установлен "
+"соответствующими законами страны или региона вашего текущего пребывания. Не "
 "просматривайте материалы сайта, если вы живете в стране или регионе, законы "
-"которого запрещают подобный вид информации. Этот сайт предназначен "
-"исключительно для взрослых и небезопасен для просмотра на рабочем месте."
+"которого запрещают подобный вид информации. Этот сайт создан исключительно "
+"для взрослых и мы не советуем посещать его с Вашего рабочего места."
 
 #: templates/catalog/page_disclaimer.html:11
 msgid ""
@@ -178,14 +695,14 @@ msgid ""
 "and added into our system by our spider scripts. Thumbnails are "
 "automatically generated from the videos."
 msgstr ""
-"MyLust.xxx это полностью автоматизированный каталог и поисковая платформа, "
+"MyLust.xxx это полностью автоматизированный каталог и поисковая система, "
 "основной направленностью которой являются сайты для взрослых с бесплатными "
-"видеороликами порнографического содержания. Мы не владеем, не производим и "
-"не храним на наших серверах материалы данного сайта. Вся информация, "
-"представленная на нашем сайте, размещается на серверах, которые находятся "
-"вне нашего владения и контроля. Представленные видеоролики автоматически "
-"собираются и добавляются в нашу базу специальным поисковым движком. Картинки "
-"предпросмотра автоматически генерируются из видео."
+"видеороликами порнографического содержания. Мы не имеем права собственности, "
+"не производим и не храним на наших серверах материалы данного сайта. Вся "
+"информация, представленная на нашем сайте, размещается на серверах, которые "
+"находятся вне нашего влияния и контроля. Представленные видеоролики "
+"автоматически собираются и добавляются в нашу базу специальным поисковым "
+"механизмом. Картинки предпросмотра генерируются автоматически."
 
 #: templates/catalog/page_disclaimer.html:15
 msgid ""
@@ -195,12 +712,13 @@ msgid ""
 "being. MyLust.xxx has a zero-tolerance policy against illegal pornography. "
 "We take no responsibility for the content on any website which we link to."
 msgstr ""
-"Все модели и актеры на данном сайте достигли восемнадцатилетнего возраста и "
-"факт появления их в нашем каталоге или же описании видеоролика не ставит "
-"своей целью оскорбление их сексуальной ориентации, образа жизни или чего-"
-"либо еще, связанного с их личностью. MyLust.xxx придерживается политики "
-"абсолютной нетерпимости в отношении незаконной порнографии. Мы не несем "
-"никакой ответственности за содержание сайтов на которые мы ссылаемся."
+"Все модели и актеры, представленные на данном сайте, достигли "
+"восемнадцатилетнего возраста и факт появления их в нашем каталоге или же в "
+"описании видеоролика не ставит своей целью оскорбление их сексуальной "
+"ориентации, образа жизни или чего-либо еще, связанного с их личностью. "
+"MyLust.xxx придерживается политики абсолютной нетерпимости в отношении "
+"незаконной порнографии. Мы не несем никакой ответственности за содержание "
+"сайтов на которые мы ссылаемся."
 
 #: templates/catalog/page_disclaimer.html:19
 msgid ""
@@ -209,8 +727,8 @@ msgid ""
 "visual content on this website."
 msgstr ""
 "В соответвии с действующим законодательством США, РФ и Украины, владельцы "
-"данного сайта не являются \"первоисточником\" каких-либо материалов, "
-"представленных на этом сайте. "
+"данного сайта не являются \"первоисточниками\" и \"авторами\" любых "
+"материалов, представленных на этом сайте. "
 
 #: templates/catalog/page_disclaimer.html:23
 #, python-format
@@ -218,7 +736,7 @@ msgid ""
 "For any questions please contact us using the <a href=\"%(formlink)s"
 "\">following form</a>."
 msgstr ""
-"В случае возникновения каких-либо вопросов, Вы можете свзяаться с нами "
+"В случае возникновения каких-либо вопросов, Вы можете связаться с нами "
 "посредством <a href=\"%(formlink)s\">формы</a>."
 
 #: templates/catalog/page_disclaimer.html:28
@@ -231,52 +749,64 @@ msgstr "Я не согласен с данными правилами"
 
 #: templates/catalog/video.html:3
 #, python-format
-msgid " %(title)s video"
-msgstr "Ролик %(title)s"
+msgid "%(title)s video"
+msgstr "%(title)s"
 
 #: templates/catalog/video.html:16
 msgid "Posted under categories"
-msgstr "Размещено в категорияз"
+msgstr "Размещено в категориях"
 
-#: templates/catalog/video.html:28
+#: templates/catalog/video.html:27
 msgid "Starring"
 msgstr "В ролях"
 
-#: templates/catalog/video.html:39
+#: templates/catalog/video.html:38
 msgid "Video information"
 msgstr "Информация о видео"
 
-#: templates/catalog/video.html:41
+#: templates/catalog/video.html:40
 msgid "Source: "
 msgstr "Источник:"
 
-#: templates/catalog/video.html:42
+#: templates/catalog/video.html:41
 msgid "Duration: "
 msgstr "Длительность:"
 
-#: templates/catalog/video.html:43
+#: templates/catalog/video.html:42
 msgid "Addition date: "
 msgstr "Дата добавления:"
 
-#: templates/catalog/video.html:48
+#: templates/catalog/video.html:47
 msgid "Actions"
 msgstr "Действия"
 
-#: templates/catalog/video.html:50
+#: templates/catalog/video.html:49
 msgid "Report video not playing"
 msgstr "Сообщить о неработающем видео"
 
 #: templates/catalog/videos.html:8
 #, python-format
 msgid "Videos under category %(category)s"
-msgstr "Видео в категории %(category)s"
+msgstr "Видео в категории \"%(category)s\""
 
-#: templates/catalog/videos.html:13
+#: templates/catalog/videos.html:11
 #, python-format
 msgid "Videos starring %(name)s"
 msgstr "Видео в главных ролях с %(name)s"
 
-#: templates/catalog/videos.html:36
+#: templates/catalog/videos.html:14
+#, python-format
+msgid "Search results for query \"%(query)s\""
+msgstr "Результаты поиска по запросу \"%(query)s\""
+
+#: templates/catalog/videos.html:26
+msgid "We found no videos matching your query, change it and try one more time"
+msgstr "Мы ничего не нашли, попробуйте уточнить свой запрос"
+
+#: templates/catalog/videos.html:41
 #, python-format
 msgid "from %(masturbator)s"
 msgstr "из %(masturbator)s"
+
+#~ msgid "Russian"
+#~ msgstr "Русский"

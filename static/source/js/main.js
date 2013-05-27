@@ -28,6 +28,17 @@ $(document).ready(function() {
 		$(".tos_buttons").hide();
 	}
 
+	$(".search_submit").click(function(e){
+
+		var search_term = $(".search_term").val()
+
+		if (search_term.length < 4 || search_term.length > 32)
+		{
+			alert(ml_search_length_error);
+			e.preventDefault();
+		}
+	})
+
 	var interval_function;
 	var focused_on_image = true;
 	var current_loop_index = 0;

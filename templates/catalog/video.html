@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block subtitle %}{{ _(" %(title)s video", title=video.title.capitalize() ) }}{% endblock %}
+{% block subtitle %}{{ _("%(title)s video", title=translate_video_title(video.title).capitalize() ) }}{% endblock %}
 
 {% block content %}
 
@@ -17,11 +17,10 @@
 	
 		{% for tag in video.tags.all() %}
 			<div class="videotag">
-				<a href="{{ url_for("catalog.tag", id=tag.id, slug=tag.slug) }}">{{ _(tag.name).title() }}</a>
+				<a href="{{ url_for("catalog.tag", id=tag.id, slug=tag.slug) }}">{{ _(tag.name).capitalize() }}</a>
 			</div>
 		{% endfor %}
 	</div>
-
 
 	{% if video.stars.count() > 0 %}
 		<div class="group">

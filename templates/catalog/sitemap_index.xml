@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	{% for i in range(0, sitemaps_count | int) %}
+		<sitemap>
+			<loc>{{ url_for("catalog.sitemap", id=i, _external=True) }}</loc>
+			<lastmod>{{ now.strftime("%Y-%m-%d") }}</lastmod>
+		</sitemap>
+	{% endfor %}
+</sitemapindex>

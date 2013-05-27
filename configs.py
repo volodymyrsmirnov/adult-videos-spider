@@ -22,7 +22,7 @@ class Production(object):
 
 	LANGUAGES = {
 		'en': lazy_gettext('English'),
-		'ru': lazy_gettext('Russian'),
+		# 'ru': lazy_gettext('Russian'),
 	}
 
 	CSRF_ENABLED = True
@@ -62,6 +62,10 @@ class Production(object):
 	# MAIL_DEBUG
 	# MAIL_USERNAME
 	# MAIL_PASSWORD
+
+	REDIS_HOST = 'localhost'
+	REDIS_PORT = 6379
+	REDIS_DB = 0
 
 class Testing(Production):
 	"""

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	{% for video_id, video_title, video_date in videos %}
+	<url>
+		<loc>{{ url_for("catalog.video", id=video_id, slug=slugify(video_title), _external=True) }}</loc>
+		<lastmod>{{ video_date.strftime("%Y-%m-%d") }}</lastmod>
+	</url>
+	{% endfor %}
+
+</urlset> 

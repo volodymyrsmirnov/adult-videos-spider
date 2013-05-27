@@ -13,7 +13,7 @@
 			<li class="tag">
 				<a href="{{ url_for("catalog.tag", id=tag.id, slug=tag.slug) }}">
 					<img class="thumb" src="{{ url_for("static", filename="img/blank.gif") }}" data-src="{{ url_for("catalog.tag_thumb", id=tag.id, slug=tag.slug) }}">
-					<div class="name">{{ _(tag.name).title() }}</div>
+					<div class="name">{{ _(tag.name).capitalize() }}</div>
 					<div class="quantity">{{ _("%(quantity)s videos", quantity="{:,}".format(quantity)) }}</div>
 				</a>
 			</li>
