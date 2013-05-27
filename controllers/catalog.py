@@ -9,8 +9,11 @@ from flask import *
 catalog = Blueprint('catalog', __name__, template_folder='templates')
 
 from models import *
-from application import cache, app
+from forms import ContactForm, contact_topics
+from application import cache, app, mail
+from flask.ext.babel import gettext
 from flask.ext.babel import refresh as language_refresh
+from flask.ext.mail import Message
 
 @catalog.url_defaults
 def add_language_code(endpoint, values):
@@ -47,6 +50,7 @@ def index():
 		tags=get_list_of_tags(), 
 	)
 
+
 @catalog.route("/tag/thumb/<int:id>/<slug>.jpg")
 @cache.cached(timeout=3600)
 def tag_thumb(id, slug):
@@ -79,11 +83,53 @@ def tag(id, slug, page=1):
 
 @catalog.route("/video/<int:id>/<slug>.html")
 def video(id, slug):
-	pass
+	video = Video.query.get_or_404(id)
 
-@catalog.route("/page/<slug>.html")
+	video.views += 1
+
+	db.session.commit()
+
+	return render_template (
+		"catalog/video.html", 
+		video=video
+	)
+
+@catalog.route("/report_video_not_playing/", methods=["POST"])
+def report_video_not_playing():
+	if not "id" in request.form: 
+		return abort(404)
+
+	video = Video.query.get_or_404(request.form["id"])
+
+	# TODO: add celery function for checking the video status
+
+	return gettext("Thank you for your report, our robot will recheck that video automatically.")
+
+@catalog.route("/page/<slug>.html", methods=["GET", "POST"])
 def page(slug):
+	form = None
+
 	if not slug in ["disclaimer", "contact_us"]:
 		return abort(404)
+
+	if slug == "contact_us":
+		form = ContactForm(request.values)
+
+		if request.method == "POST" and form.validate_on_submit():
+			flash("contact_us_submitted")
+
+			if not request.headers.getlist("X-Forwarded-For"): ip = request.remote_addr
+			else: ip = request.headers.getlist("X-Forwarded-For")[0]
+
+			subject = dict(contact_topics)[form.topic.data]
+
+			msg = Message(subject)
+			msg.sender = "MyLust.XXX Contact Form <noreply@mylust.xxx>"
+			msg.body = "{name} - {email} - {ip} \n\n {message}".format(name=form.name.data, email=form.email.data, ip=ip, message=form.message.data)
+			msg.add_recipient(app.config["CONTACT_EMAIL"])
+
+			mail.send(msg)
+
+			return redirect(url_for("catalog.page", slug="contact_us"))
 	
-	return render_template("catalog/page_{0}.html".format(slug))
+	return render_template("catalog/page_{0}.html".format(slug), form=form)

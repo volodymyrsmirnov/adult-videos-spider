@@ -12,6 +12,7 @@ from flask.ext.babel import Babel
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.assets import Environment, Bundle
 from flask.ext.cache import Cache
+from flask.ext.mail import Mail
 
 app = Flask(__name__)
 
@@ -24,6 +25,7 @@ babel = Babel(app)
 db = SQLAlchemy(app)
 cache = Cache(app)
 assets = Environment(app)
+mail = Mail(app)
 
 from controllers.catalog import catalog
 
@@ -52,6 +54,7 @@ js = Bundle(
 	'source/js/third-party/jquery.unveil.min.js',
 	'source/js/third-party/jquery.cookie.js',
 	'source/js/third-party/jquery.purl.js',
+	'source/js/third-party/jquery.autosize.min.js',
 
 	'source/js/main.js',
 

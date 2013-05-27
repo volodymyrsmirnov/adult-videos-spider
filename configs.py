@@ -4,7 +4,6 @@
 """
 Application configs
 """
-
 from flask.ext.babel import lazy_gettext
 
 from datetime import timedelta
@@ -14,6 +13,8 @@ class Production(object):
 	Production config
 	"""
 	DOMAIN = 'http://mylust.xxx'
+
+	CONTACT_EMAIL = 'info@mylust.xxx'
 
 	SQLALCHEMY_DATABASE_URI = 'postgres://mylust:Nrn75enDLb5eJ9KL@localhost/mylust'
 	
@@ -49,6 +50,19 @@ class Production(object):
 	CACHE_KEY_PREFIX = 'mylust_'
 	CACHE_MEMCACHED_SERVERS = ['127.0.0.1:11211']
 
+	RECAPTCHA_USE_SSL = False
+	RECAPTCHA_PUBLIC_KEY = "6Lc09uESAAAAAN9m-712sJXWx1xZPbGux1T6ckj_"
+	RECAPTCHA_PRIVATE_KEY = "6Lc09uESAAAAAERCHgR7ysiPhaUC2TbwLILCMRU1"
+	RECAPTCHA_OPTIONS = {}
+
+	# MAIL_SERVER
+	# MAIL_PORT
+	# MAIL_USE_TLS
+	# MAIL_USE_SSL
+	# MAIL_DEBUG
+	# MAIL_USERNAME
+	# MAIL_PASSWORD
+
 class Testing(Production):
 	"""
 	Testing config
@@ -57,7 +71,6 @@ class Testing(Production):
 
 	# Debug everything
 	DEBUG = True
-	TESTING = True
 	SQLALCHEMY_ECHO = True
 	MAIL_DEBUG = True
 	MAIL_FAIL_SILENTLY = False

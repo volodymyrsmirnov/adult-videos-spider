@@ -6,6 +6,8 @@ flask-sqlalchemy
 flask-babel
 flask-assets
 flask-cache
+flask-wtf
+flask-mail
 
 celery
 requests

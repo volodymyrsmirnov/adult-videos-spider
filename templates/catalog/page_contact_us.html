@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% from "macros.html" import render_field %}
+
+{% block subtitle %}{{ _("Contact us") }}{% endblock %}
+
+{% block content %}
+	<form class="contactform" method="POST" action="{{ url_for("catalog.page", slug="contact_us") }}">
+		
+		{% if "contact_us_submitted" in get_flashed_messages() %}
+			<div class="success">
+				{{ _("Thank you for your email. We are doing our best to respond on all incoming requests in 48 hours.") }}
+			</div>
+		{% endif %}
+
+		{{ form.csrf_token }}
+		{{ render_field(form.name) }}
+		{{ render_field(form.email) }}
+		{{ render_field(form.topic) }}
+		{{ render_field(form.message) }}
+		{{ render_field(form.captcha) }}
+
+		<input type="submit" value="{{ _("Send us an email") }}">
+	</form>
+{% endblock %}

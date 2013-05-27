@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block subtitle %}{{ _(" %(title)s video", title=video.title.capitalize() ) }}{% endblock %}
+
+{% block content %}
+
+<div class="placeholder">
+	{% if video.masturbator == "redtube" %}
+		{% include "embedding/redtube.html" %}
+	{% endif %}
+</div>
+
+<div class="information">
+	{#
+	<p>
+		{{ _("Video from the site") }} <a href="{{ video.remote_url }}" target="_blank">{{ video.masturbator.capitalize() }}</a>.
+	</p>
+	#}
+	<div class="group">
+		<div class="title">{{ _("Posted under categories") }}</div>
+	
+		{% for tag in video.tags %}
+			<div class="videotag">
+				<a href="{{ url_for("catalog.tag", id=tag.id, slug=tag.slug) }}">{{ _(tag.name).title() }}</a>
+			</div>
+		{% endfor %}
+	</div>
+
+	<div class="group">
+		<div class="title">{{ _("Video information") }}</div>
+		<div class="fussed">
+			<strong>{{ _("Source: ") }}</strong> <a rel="nofollow" target="_blank" href="{{ video.remote_url }}">{{ video.masturbator.title() }}</a> <br>
+			<strong>{{ _("Duration: ") }}</strong>  {{ video.duration_formated }} <br>
+			<strong>{{ _("Addition date: ") }}</strong> {{ video.import_date.strftime("%Y-%m-%d") }}
+		</div>
+	</div>
+
+	<div class="group">
+		<div class="title">{{ _("Actions") }}</div>
+
+		<a class="button" href="javascript:report_video_not_playing({{ video.id }});">{{ _("Report video not playing") }}</a>
+		<a class="button" target="_blank" href="{{ url_for("catalog.page", slug="contact_us", topic=2) }}">{{ _("Report abusive content") }}</a>
+		<a class="button" target="_blank" href="{{ url_for("catalog.page", slug="contact_us", topic=3) }}">{{ _("Report copyright infringement") }}</a>
+	</div>
+</div>
+
+<div class="clear"></div>
+
+{% endblock %}

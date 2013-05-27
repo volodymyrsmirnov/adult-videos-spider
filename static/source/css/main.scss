@@ -59,6 +59,67 @@ $one_column_size: 960px;
 		right: auto;
 	};
 
+	.contactform {
+
+		.success {
+			border: 1px solid #008800;
+			padding: 5px;
+			margin-bottom: 10px;
+			background: #00D800;
+		}
+
+		input, select, textarea {
+			width: 100%;
+
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+
+			padding: 5px;
+		}
+
+		.control-group {
+
+			&.error {
+				input, textarea, select {
+					border: 1px solid #ff0000;
+				}
+
+				.error_message {
+					color: #ff0000;
+					margin-top: 5px;
+					font-size: 13px;
+				}
+			}
+
+			margin-bottom: 15px;
+
+			label {
+				display: block;
+				margin-bottom: 3px;
+			}
+
+			#recaptcha_table {
+				width: 100%;
+			}
+
+			textarea {
+				height: 100px;
+			}
+		}
+
+		input[type="submit"] {
+			color: #000000;
+			border: 1px solid #000000;
+			background: #ffffff;
+
+			&:hover {
+				border-color: #ff0000;
+				color: #ff0000;
+			}
+		}
+	}
+
 	.pagination {
 		text-align: center;
 
@@ -85,6 +146,91 @@ $one_column_size: 960px;
 			color: #ff0000;
 		}
 
+	}
+
+	.placeholder {
+		padding: {
+			bottom: 5px;
+		}
+
+		float: left;
+		text-align: left;
+	}
+
+	.information {
+		padding: {
+			top: 0;
+			left: 10px;
+		}
+
+		margin: 0;
+
+		float: left;
+
+		width: 320px;
+
+		.group {
+
+			.fussed {
+				padding: 0;
+				margin: 0;
+				line-height: 25px;
+			}
+
+			margin-bottom: 15px;
+			
+			.title {
+				color: #5E5E5E;
+
+				margin-bottom: 3px;
+
+				border: {
+					bottom: 1px solid #5E5E5E;
+				}
+
+				padding-bottom: 0px;
+			}
+
+			a {
+				color: #000000;
+			}
+
+			a.button {
+				display: block;
+				padding: 5px;
+				text-align: center;
+				border: 1px solid black;
+				text-decoration: none;
+				margin-bottom: 5px;
+
+				&:hover {
+					color: #ff0000;
+					border-color: #ff0000;
+				}
+			}
+
+			.videotag {
+				display: inline-block;
+
+				border: 1px solid #000000;
+
+				padding: 2px;
+
+				margin-bottom: 4px;
+
+				color: #000000;
+
+				a {
+					color: inherit;
+					text-decoration: none;
+				}
+
+				&:hover {
+					color: #ff0000;
+					border-color: #ff0000;
+				}
+			}
+		}
 	}
 
 	.title {

@@ -1,6 +1,8 @@
 $(document).ready(function() {
 	$("img.thumb").unveil();
 
+	$('.contactform textarea').autosize();
+
 	if (ml_show_disclaimer) {
 		if ($.cookie('tos') != undefined) {
 			$(".tos_buttons").hide();
@@ -39,6 +41,8 @@ $(document).ready(function() {
 		var thumbs = image.attr("data-slides").split("|");
 		thumbs.pop();
 
+		if (thumbs.length < 1) return;
+
 		$(thumbs).each(function(){
 			(new Image()).src = this;
     	});
@@ -69,5 +73,14 @@ $(document).ready(function() {
 
 		$(this).find(".thumb").attr("src", $(this).find(".thumb").attr("data-src"));
   	});
-	
+
+  	window.report_video_not_playing = function(id){
+		$.ajax({
+			method: "POST",
+			url: "/" + ml_current_locale + "/report_video_not_playing/",
+			data: { id: id }
+		}).done(function(data){
+			alert(data);
+		});
+	}
 });

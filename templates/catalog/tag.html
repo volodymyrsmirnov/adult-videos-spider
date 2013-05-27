@@ -28,7 +28,7 @@
 		{% endfor %}
 	</ul>
 
-	{{ render_pagination(page, "catalog.tag", id=tag.id, slug=tag.slug) }}
-
 	<div class="clear"></div>
+
+	{{ render_pagination(page, "catalog.tag", id=tag.id, slug=tag.slug) }}
 {% endblock %}
