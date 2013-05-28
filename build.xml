@@ -9,7 +9,8 @@
 	</target>
 
 	<target name="requirements">
-		<exec executable="pip" failonerror="true">
+		<exec executable="sudo" failonerror="true">
+			<arg value="pip"/>
 			<arg value="install"/>
 			<arg value="-r"/>
 			<arg value="requirements.txt"/>
@@ -41,12 +42,20 @@
 		</exec>
 	</target>
 
-	<target name="main" depends="git, requirements, tests, database, i18n">
+	<target name="assets">
+		<exec executable="python" failonerror="true">
+			<arg value="manage.py"/>
+			<arg value="assets"/>
+			<arg value="build"/>
+		</exec>
+	</target>
+
+	<target name="main" depends="git, requirements, tests, database, assets, i18n">
 		<exec executable="sudo" failonerror="true">
 			<arg value="supervisorctl"/>
 			<arg value="restart"/>
 			<arg value="mylust"/>
 		</exec>
 	</target>
-	
+
 </project>

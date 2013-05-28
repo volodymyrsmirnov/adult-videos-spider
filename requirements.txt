@@ -9,6 +9,7 @@ flask-cache
 flask-wtf
 flask-mail
 flask-and-redis
+flask-script
 
 celery
 requests
