@@ -11,6 +11,7 @@ flask-mail
 flask-and-redis
 flask-script
 
+scrapy
 celery
 requests
 pygeoip

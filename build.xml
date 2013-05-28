@@ -54,7 +54,7 @@
 		<exec executable="sudo" failonerror="true">
 			<arg value="supervisorctl"/>
 			<arg value="restart"/>
-			<arg value="mylust"/>
+			<arg value="all"/>
 		</exec>
 	</target>
 
