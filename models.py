@@ -41,7 +41,7 @@ class Video(db.Model):
 	masturbator = db.Column(db.String(32), index=True)
 
 	remote_id = db.Column(db.BigInteger)
-	remote_url = db.Column(db.String(256))
+	remote_url = db.Column(db.String(256), index=True)
 
 	remote_date = db.Column(db.DateTime(), nullable=True)
 	import_date = db.Column(db.DateTime(), default=datetime.datetime.now, index=True)

@@ -10,7 +10,6 @@ reload(sys)
 sys.setdefaultencoding("UTF-8")
 
 import os
-# import pygeoip
 
 from flask import *
 from flask.ext.babel import Babel
@@ -26,8 +25,6 @@ if os.path.exists(".production"):
 	app.config.from_object('configs.Production')
 else: 
 	app.config.from_object('configs.Testing')
-
-# app.gi4 = pygeoip.GeoIP(app.config['GEOIP_V4_DB_PATH'])
 
 babel = Babel(app)
 db = SQLAlchemy(app)
