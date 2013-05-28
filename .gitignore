@@ -25,7 +25,7 @@ lib64
 .DS_Store
 
 # Invoice.pm specific rules
-all.js
-all.css
+compiled.js
+compiled.css
 .webassets-cache
 
