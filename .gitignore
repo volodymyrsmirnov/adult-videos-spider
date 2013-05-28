@@ -24,8 +24,9 @@ lib64
 # Mac OSX crap
 .DS_Store
 
-# Invoice.pm specific rules
 compiled.js
 compiled.css
 .webassets-cache
+
+.production
 
