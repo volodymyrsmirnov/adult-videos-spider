@@ -7,9 +7,9 @@ class SaveVideoPipeline(object):
 		video = Video()
 		video.title = item.get("title")
 		video.masturbator = spider.name
-		video.remote_id = item.get("id")
-		video.remote_url = item.get("url")
-		video.remote_date = item.get("publish_date")
+		video.remote_id = item.get("remote_id")
+		video.remote_url = item.get("remote_url")
+		video.remote_date = item.get("remote_date")
 		video.duration = item.get("duration")
 
 		db.session.add(video)
@@ -41,4 +41,4 @@ class SaveVideoPipeline(object):
 
 		db.session.commit()
 
-		raise DropItem()
+		return item

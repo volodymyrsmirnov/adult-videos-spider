@@ -37,5 +37,10 @@ DOWNLOADER_MIDDLEWARES = {
 }
 
 VIDEO_URLS = [
-	re.compile(r"^http:\/\/www\.redtube\.com\/\d+$")
+	re.compile(r"^http:\/\/www\.redtube\.com\/\d+$"),
 ]
+
+LOG_LEVEL = 'INFO'
+COOKIES_ENABLED = False
+RETRY_ENABLED = False
+DOWNLOAD_TIMEOUT = 15
