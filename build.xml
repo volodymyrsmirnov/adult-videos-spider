@@ -2,6 +2,12 @@
 <!--suppress XmlUnboundNsPrefix -->
 <project name="mylust" basedir="." default="main">
 
+	<target name="git">
+		<exec executable="git" failonerror="true">
+			<arg value="pull"/>
+		</exec>
+	</target>
+
 	<target name="requirements">
 		<exec executable="pip" failonerror="true">
 			<arg value="install"/>
@@ -35,6 +41,6 @@
 		</exec>
 	</target>
 
-	<target name="main" depends="requirements, tests, database, i18n"/>
+	<target name="main" depends="git, requirements, tests, database, i18n"/>
 
 </project>

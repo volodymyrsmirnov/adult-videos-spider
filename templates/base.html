@@ -13,7 +13,7 @@
 	<script type="text/javascript">
 		var ml_disclaimer_page = "{{ url_for("catalog.page", slug="disclaimer") }}";
 		var ml_current_locale = "{{ g.lang_code }}";
-		var ml_show_disclaimer = true;
+		var ml_show_disclaimer = false;
 
 		{% if not hide_search %}
 			var ml_search_length_error = "{{ _("Sorry, but the search query must contain more then 3 and less then 32 symbols.") }}";

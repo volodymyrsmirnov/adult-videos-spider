@@ -13,8 +13,8 @@ flask-and-redis
 celery
 requests
 pygeoip
-jsmin
-cssmin
+yuicompressor
 alembic
 translate
 python-slugify
+python-memcached
