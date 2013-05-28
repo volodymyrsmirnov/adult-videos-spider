@@ -41,6 +41,12 @@
 		</exec>
 	</target>
 
-	<target name="main" depends="git, requirements, tests, database, i18n"/>
-
+	<target name="main" depends="git, requirements, tests, database, i18n">
+		<exec executable="sudo" failonerror="true">
+			<arg value="supervisorctl"/>
+			<arg value="restart"/>
+			<arg value="mylust"/>
+		</exec>
+	</target>
+	
 </project>
