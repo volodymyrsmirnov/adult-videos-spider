@@ -28,7 +28,7 @@ $(document).ready(function() {
 		$(".tos_buttons").hide();
 	}
 
-	$(".search_submit").click(function(e){
+	$(".search form").submit(function(e){
 
 		var search_term = $(".search_term").val()
 

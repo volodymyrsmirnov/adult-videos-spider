@@ -53,10 +53,8 @@
 			{% if not hide_search %}
 				<div class="search">
 					<form method="POST" action="{{ url_for("catalog.search") }}">
-						<input class="search_term" name="search_term" type="text" value="{{ search_term }}" placeholder="{{ _("search in video database") }}"><input type="submit" class="search_submit" value="">
+						<input class="search_term" name="search_term" type="text" value="{{ search_term }}" placeholder="{{ _("type your search query and hit enter") }}">
 					</form>
-
-					<div class="clear"></div>
 				</div>
 			{% endif %}
 	</div>
