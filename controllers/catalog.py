@@ -71,7 +71,7 @@ def pull_lang_code(endpoint, values):
 
 	language_refresh()
 
-@cache.cached(timeout=3600)
+# @cache.cached(timeout=3600)
 def get_list_of_tags():
 	return db.session.query(
 			VideoTag, 
