@@ -142,7 +142,7 @@ def search(what=None, page=1):
 	)	
 
 @catalog.route("/tag/thumb/<int:id>/<slug>.jpg")
-# @cache.cached(timeout=3600)
+@cache.cached(timeout=3600)
 def tag_thumb(id, slug):
 	"""
 	TODO: rewrite this function
