@@ -16,7 +16,7 @@ class Production(object):
 
 	CONTACT_EMAIL = 'info@mylust.xxx'
 
-	SQLALCHEMY_DATABASE_URI = 'postgres://mylust:Nrn75enDLb5eJ9KL@localhost/mylust_test'
+	SQLALCHEMY_DATABASE_URI = 'postgres://mylust:Nrn75enDLb5eJ9KL@localhost/mylust'
 	
 	SECRET_KEY = "JNJNnlasdaksjNOINIusdasuiuIBY"
 
