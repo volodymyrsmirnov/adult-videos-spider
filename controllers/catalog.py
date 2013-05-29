@@ -240,7 +240,7 @@ def page(slug):
 			if not request.headers.getlist("X-Forwarded-For"): ip = request.remote_addr
 			else: ip = request.headers.getlist("X-Forwarded-For")[0]
 
-			subject = dict(contact_topics)[form.topic.data]
+			subject = "{0} from {1}".format(dict(contact_topics)[form.topic.data], form.name.data)
 
 			msg = Message(subject)
 			msg.sender = "MyLust.XXX Contact Form <noreply@mylust.xxx>"
