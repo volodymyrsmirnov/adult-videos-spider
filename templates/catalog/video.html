@@ -51,8 +51,8 @@
 		<div class="title">{{ _("Actions") }}</div>
 
 		<a class="button" href="javascript:report_video_not_playing({{ video.id }});">{{ _("Report video not playing") }}</a>
-		<a class="button" target="_blank" href="{{ url_for("catalog.page", slug="contact_us", topic=2) }}">{{ _("Report abusive content") }}</a>
-		<a class="button" target="_blank" href="{{ url_for("catalog.page", slug="contact_us", topic=3) }}">{{ _("Report copyright infringement") }}</a>
+		<a class="button" target="_blank" href="{{ url_for("catalog.page", slug="contact_us", topic=2, message=_("Do not delete the following line, it is used for video identification: VIDEO_ID = %(id)d\n", id=video.id)) }}">{{ _("Report abusive content") }}</a>
+		<a class="button" target="_blank" href="{{ url_for("catalog.page", slug="contact_us", topic=3, message=_("Do not delete the following line, it is used for video identification: VIDEO_ID = %(id)d\n", id=video.id)) }}">{{ _("Report copyright infringement") }}</a>
 	</div>
 </div>
 
