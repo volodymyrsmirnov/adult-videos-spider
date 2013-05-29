@@ -77,6 +77,10 @@ def redirect_to_language():
 	Redirect browser to best matching language
 	"""
 	best_language = request.accept_languages.best_match(app.config.get("LANGUAGES").keys())
+
+	if not best_language:
+		best_language = 'en'
+
 	return redirect(url_for('catalog.index', lang_code=best_language), code=302)
 
 @app.route('/robots.txt')
