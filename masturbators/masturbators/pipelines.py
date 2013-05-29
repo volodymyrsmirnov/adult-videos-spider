@@ -6,6 +6,10 @@ from models import *
 
 class SaveVideoPipeline(object):
 	def process_item(self, item, spider):
+
+		if item == None:
+			return None
+
 		video = Video()
 		video.title = item.get("title")
 		video.masturbator = spider.name
@@ -14,8 +18,12 @@ class SaveVideoPipeline(object):
 		video.remote_date = item.get("remote_date")
 		video.duration = item.get("duration")
 
-		db.session.add(video)
-		db.session.commit()
+		try:
+			db.session.add(video)
+			db.session.commit()
+		except IntegrityError:
+			db.session.rollback()
+			return None
 
 		for tag_name in item.get("tags"):
 				tag = VideoTag.query.filter_by(name=tag_name).first()
@@ -45,5 +53,6 @@ class SaveVideoPipeline(object):
 			db.session.commit()
 		except IntegrityError:
 			db.session.rollback()
+			return None
 
 		return item

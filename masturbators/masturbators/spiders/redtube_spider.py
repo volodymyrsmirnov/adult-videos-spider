@@ -3,6 +3,8 @@ import datetime
 import requests
 import anyjson
 
+from urlparse import urlparse
+
 from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor
 from scrapy.selector import HtmlXPathSelector
@@ -36,9 +38,7 @@ class RedtubeSpider(CrawlSpider):
 					'(.*)/toprated',
 				],
 
-				deny_domains=[
-					'images.cdn.redtube.com',
-				]
+				allow_domains = ["www.redtube.com"],
 			),
 
 			follow=True
@@ -73,9 +73,9 @@ class RedtubeSpider(CrawlSpider):
 		if api_response.get("publish_date"):
 			video['remote_date'] = datetime.datetime.strptime(api_response.get("publish_date"), "%Y-%m-%d %H:%M:%S")
 
-		video['tags'] = list()
-		video['thumbs'] = list()
-		video['stars'] = list()
+		video['tags'] = set()
+		video['thumbs'] = set()
+		video['stars'] = set()
 
 		try:
 			duration_time = time.strptime(api_response.get("duration"), "%M:%S")
@@ -90,15 +90,15 @@ class RedtubeSpider(CrawlSpider):
 
 		if api_response.get("tags"):
 			for tag_id, tag_name in api_response.get("tags").items():
-				video['tags'].append(tag_name.lower())
+				video['tags'].add(tag_name.lower())
 
 		if api_response.get("thumbs"):
 			for thumb in api_response.get("thumbs"):
-				video['thumbs'].append(thumb.get("src"))
+				video['thumbs'].add(thumb.get("src"))
 
 		if api_response.get("stars"):
 			for star_id, star_name in api_response.get("stars").items():
-				 video['stars'].append(star_name.lower())
+				 video['stars'].add(star_name.lower())
 
 		return video
 
@@ -110,7 +110,10 @@ class RedtubeSpider(CrawlSpider):
 
 		video = VideoItem()
 		video['masturbator'] = self.name
-		video['remote_url'] = response.url
+
+		url_parsed = urlparse(response.url)
+		video['remote_url'] = "{0}://{1}{2}".format(url_parsed.scheme, url_parsed.netloc, url_parsed.path)
+		
 		video['remote_id'] = first_or_none(hxs.select("//input[@name='object_id']/@value").extract())
 
 		if not video['remote_id']:
