@@ -14,7 +14,7 @@ class Production(object):
 	"""
 	DOMAIN = 'http://mylust.xxx'
 
-	CONTACT_EMAIL = 'info@mylust.xxx'
+	CONTACT_EMAIL = 'contact@mylust.xxx'
 
 	SQLALCHEMY_DATABASE_URI = 'postgres://mylust:Nrn75enDLb5eJ9KL@localhost/mylust'
 	
