@@ -244,7 +244,7 @@ def page(slug):
 
 			msg = Message(subject)
 			msg.sender = "MyLust.XXX Contact Form <noreply@mylust.xxx>"
-			msg.body = "{name} - {email} - {ip} \n\n {message}".format(name=form.name.data, email=form.email.data, ip=ip, message=form.message.data)
+			msg.body = "{name} - {email} - {ip} \n\n{message}".format(name=form.name.data, email=form.email.data, ip=ip, message=form.message.data)
 			msg.add_recipient(app.config["CONTACT_EMAIL"])
 
 			mail.send(msg)
