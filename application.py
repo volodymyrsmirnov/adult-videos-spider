@@ -71,6 +71,13 @@ js = Bundle(
 assets.register('css', css)
 assets.register('js', js)
 
+@app.route('/favicon.ico')
+def favicon():
+	"""
+	Send favicon
+	"""
+	return send_from_directory(os.path.join(app.root_path, 'static'), 'img/favicon.ico', mimetype='image/vnd.microsoft.icon')
+
 @app.route('/')
 def redirect_to_language():
 	"""
