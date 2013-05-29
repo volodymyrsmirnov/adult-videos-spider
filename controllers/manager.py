@@ -58,10 +58,13 @@ def panel():
 	spiders = call_scrapyd_api("listspiders", data={"project": config.get("deploy", "default_project")})
 	jobs = call_scrapyd_api("listjobs", data={"project": config.get("deploy", "default_project")}) 
 
+	url = "http://{0}:{1}@{2}".format(config.get("deploy", "username"), config.get("deploy", "password"), config.get("deploy", "url").replace("http://", ""))
+
 	return render_template(
 		"manager/panel.html",
 		spiders=spiders,
-		jobs=jobs
+		jobs=jobs,
+		url=url
 	)
 
 @manager.route("/run/<spidername>/")
