@@ -142,14 +142,13 @@ def search(what=None, page=1):
 	)	
 
 @catalog.route("/tag/thumb/<int:id>/<slug>.jpg")
-@cache.cached(timeout=3600)
 def tag_thumb(id, slug):
 	"""
 	TODO: rewrite this function
 	"""
 	thumb = db.session.query(VideoThumb.url).join(
 		video_tags, video_tags.c.video_id == VideoThumb.video_id
-	).filter(video_tags.c.tag_id == id).offset(0).limit(10).from_self().order_by(db.func.random()).first()
+	).filter(video_tags.c.tag_id == id).limit(100).from_self().order_by(db.func.random()).first()
 
 	return redirect(thumb[0])
 
