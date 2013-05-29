@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>Spiders management</title>
+
+	<style>
+		td {
+			padding: 5px;
+		}
+	</style>
+</head>
+<body>
+
+<p>
+	<h2>Available spiders</h2>
+	<table border="1">
+		{% for spider in spiders.spiders %}
+		<tr>
+			<td>{{ spider }}</td><td><a href="{{ url_for("manager.run_spider", spidername=spider) }}">Run this spider</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</p>
+
+<p>
+	<h2>Tasks management</h2>
+	<table border="1">
+		{% for job in jobs.keys() %}
+			{% if job != "status" %}
+				<tr>
+					<td colspan="3" align="cemter">
+						<b>{{ job.title() }}</b>
+					</td>
+				</tr>
+
+				{% for task in jobs[job] %}
+					<tr>
+						<td>{{ task.spider }}</td>
+						<td>{{ task.id }}</td>
+						<td>
+							{% if job == "running" %}
+								<a href="{{ url_for("manager.finish_job", jobid=task.id ) }}">Finish</a>
+							{% elif job == "finished" %}
+								{{ task.start_time }} - {{ task.end_time }}
+							{% else %}
+								Nothing
+							{% endif %}
+						</td>
+					</tr>
+				{% endfor %}
+			{% endif %}
+		{% endfor %}
+	</table>
+</p>
+
+</body>
+</html>

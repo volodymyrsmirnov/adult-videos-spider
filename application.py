@@ -34,10 +34,12 @@ mail = Mail(app)
 redis = Redis(app)
 
 from controllers.catalog import catalog
+from controllers.manager import manager
 
 from models import *
 
 app.register_blueprint(catalog, url_prefix='/<lang_code>')
+app.register_blueprint(manager, url_prefix='/manager')
 
 css = Bundle(
 

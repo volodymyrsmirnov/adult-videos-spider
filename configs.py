@@ -25,6 +25,9 @@ class Production(object):
 		# 'ru': lazy_gettext('Russian'),
 	}
 
+	MANAGER_USER = "masturbator"
+	MANAGER_PASSWORD = "Gya4b08M"
+
 	CSRF_ENABLED = True
 
 	# Path to GeoIP database

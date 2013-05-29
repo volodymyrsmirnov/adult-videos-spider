@@ -9,6 +9,7 @@
 import os, sys, re
 
 sys.path.append(os.path.join(os.getcwd(), ".."))
+sys.path.append("/home/mylust/app/")
 
 BOT_NAME = 'masturbators'
 
