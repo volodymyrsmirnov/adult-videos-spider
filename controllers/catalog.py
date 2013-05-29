@@ -132,10 +132,13 @@ def search(what=None, page=1):
 		(Video.stars.any(VideoStar.name.ilike(search_ilike)))
 	).order_by(Video.import_date).paginate(page=page, per_page=40)
 
+	description = gettext("Search %(title)s free porn sex video online", title=what.lower())
+
 	return render_template (
 		"catalog/videos.html", 
 		search_term=what,
 		page=page,
+		description=description
 	)	
 
 @catalog.route("/tag/thumb/<int:id>/<slug>.jpg")
