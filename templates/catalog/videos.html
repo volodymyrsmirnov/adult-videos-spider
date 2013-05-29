@@ -2,7 +2,7 @@
 
 {% from "macros.html" import render_pagination %}
 
-{% block title %}{{ _("MyLust.xxx best free adult porn videos") }}{% endblock %}
+{% block title %}{{ description + _(" at mylust.xxx") }}{% endblock %}
 
 {% if tag %}
 	{% set subtitle = _("Videos under category %(category)s", category=_(tag.name).title()) %}

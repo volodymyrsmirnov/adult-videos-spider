@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %}{{ description + _(" at mylust.xxx") }}{% endblock %}
+
 {% block subtitle %}{{ _("%(title)s video", title=translate_video_title(video.title).capitalize() ) }}{% endblock %}
 
 {% block content %}

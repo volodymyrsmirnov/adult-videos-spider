@@ -162,10 +162,13 @@ def tag(id, slug, page=1):
 
 	page = tag.videos.order_by(order_by).paginate(page=page, per_page=40)
 
+	description = gettext("Watch %(title)s free porn sex video online", title=tag.name)
+
 	return render_template (
 		"catalog/videos.html", 
 		page=page,
-		tag=tag
+		tag=tag,
+		description=description
 	)
 
 @catalog.route("/star/<int:id>/<slug>/")
@@ -177,15 +180,26 @@ def star(id, slug, page=1):
 
 	page = star.videos.order_by(order_by).paginate(page=page, per_page=40)
 
+	description = gettext("Watch free porn sex video online starring %(title)s", title=star.name)
+
 	return render_template (
 		"catalog/videos.html", 
 		page=page,
-		star=star
+		star=star,
+		description=description
 	)
 
 @catalog.route("/video/<int:id>/<slug>.html")
 def video(id, slug):
 	video = Video.query.get_or_404(id)
+
+	title = translate_video_title(video.title)
+
+	keywords = title.lower().replace(" ", ", ")
+	description = gettext("Watch %(title)s free porn sex video online", title=title.lower())
+
+	for tag in video.tags:
+		keywords += ", " + tag.name
 
 	video.views += 1
 
@@ -193,7 +207,9 @@ def video(id, slug):
 
 	return render_template (
 		"catalog/video.html", 
-		video=video
+		video=video,
+		keywords=keywords,
+		description=description
 	)
 
 @catalog.route("/report_video_not_playing/", methods=["POST"])
