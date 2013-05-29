@@ -1,5 +1,7 @@
 from scrapy.exceptions import DropItem
 
+from psycopg2 import IntegrityError
+
 from models import *
 
 class SaveVideoPipeline(object):
@@ -39,6 +41,9 @@ class SaveVideoPipeline(object):
 
 				video.stars.append(star)
 
-		db.session.commit()
+		try:
+			db.session.commit()
+		except IntegrityError:
+			db.session.rollback()
 
 		return item
