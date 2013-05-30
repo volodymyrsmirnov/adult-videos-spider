@@ -130,7 +130,7 @@ def search(what=None, page=1):
 		(Video.title.ilike(search_ilike)) |
 		(Video.tags.any(VideoTag.name.ilike(search_ilike))) |
 		(Video.stars.any(VideoStar.name.ilike(search_ilike)))
-	).order_by(Video.import_date).paginate(page=page, per_page=40)
+	).order_by(db.desc(Video.import_date)).paginate(page=page, per_page=40)
 
 	description = gettext("Search %(title)s free porn sex video online", title=what.lower())
 

@@ -15,6 +15,9 @@ from scrapy.http import Response, Request, TextResponse
 import unittest, datetime
 
 class Spiders(unittest.TestCase):
+	"""
+	Test spiders, detect change markup problems
+	"""
 
 	def get_response(self, url):
 
