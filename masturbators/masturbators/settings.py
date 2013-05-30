@@ -23,6 +23,7 @@ DOWNLOAD_DELAY = 0.25
 
 DOWNLOADER_MIDDLEWARES = {
     'scrapy.contrib.downloadermiddleware.robotstxt.RobotsTxtMiddleware': 0,
+    'masturbators.middlewares.DuplicateVideoMiddleware': 543,
 }
 
 ROBOTSTXT_OBEY = True
@@ -32,10 +33,6 @@ USER_AGENT = 'search.xxx (+http://search.xxx)'
 ITEM_PIPELINES = [
 	'masturbators.pipelines.SaveVideoPipeline',
 ]
-
-DOWNLOADER_MIDDLEWARES = {
-	'masturbators.middlewares.DuplicateVideoMiddleware': 543,
-}
 
 VIDEO_URLS = [
 	re.compile(r"^http:\/\/www\.redtube\.com\/\d+$"),

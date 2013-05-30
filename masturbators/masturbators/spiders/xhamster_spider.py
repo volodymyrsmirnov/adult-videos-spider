@@ -80,18 +80,8 @@ class XhamsterSpider(CrawlSpider):
 		duration = first_or_none(hxs.select("//td[@id='videoUser']//div[span[text()='Runtime:']]/text()").extract())
 
 		if duration:
-			duration = duration.strip()
-
-			try:
-				duration_time = time.strptime(duration, "%M:%S")
-			except ValueError:
-				duration_time = time.strptime(duration, "%H:%M:%S")
-
-			video['duration'] = int(datetime.timedelta(
-				hours= duration_time.tm_hour,
-				minutes=duration_time.tm_min,
-				seconds=duration_time.tm_sec
-			).total_seconds())
+			duration = duration.strip().split(":")
+			video['duration'] = int(duration[0]) * 60 + int(duration[1])
 
 		video['tags'] = set()
 		video['thumbs'] = set()
