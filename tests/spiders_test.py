@@ -3,7 +3,7 @@
 
 import sys, os, requests
 
-sys.path.append(os.path.join(os.getcwd(), "masturbators"))
+sys.path.insert(0, os.path.join(os.getcwd(), "masturbators"))
 
 import masturbators
 from masturbators.spiders import redtube_spider
