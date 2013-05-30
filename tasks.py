@@ -27,7 +27,7 @@ def check_video_availability(video_id):
 
 	r = requests.get(video.remote_url)
 
-	if r.status_code == 200 and "is no longer available" not in r.text:
+	if r.status_code == 200 and "is no longer available" not in r.text and "Video not found" not in r.text:
 		return True
 	else:
 		db.session.delete(video)

@@ -61,7 +61,7 @@
 
 	<div class="content">
 		<div class="title">
-			<div class="name">{% block subtitle %}{% endblock %}</div>
+			<h1 class="name">{% block subtitle %}{% endblock %}</h1>
 			<div class="flags">
 				{% for country_code in config.get("LANGUAGES").keys() %}
 					<a title="{{ _("Switch language to %(locale)s", locale=country_code.upper()) }}" href="{{ url_for("catalog.index", lang_code=country_code) }}"><img src="{{ url_for('static', filename='img/blank.gif') }}" class="flag flag-{{country_code}} {% if country_code != g.lang_code %}flag-inactive{% endif %}" alt="{{ _("Switch language to %(locale)s", locale=country_code.upper()) }}"></a>

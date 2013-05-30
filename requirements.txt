@@ -20,3 +20,4 @@ alembic
 translate
 python-slugify
 python-memcached
+redis

@@ -40,6 +40,7 @@ DOWNLOADER_MIDDLEWARES = {
 VIDEO_URLS = [
 	re.compile(r"^http:\/\/www\.redtube\.com\/\d+$"),
 	re.compile(r"^http:\/\/www\.youporn\.com\/watch\/\d+\/.*$"),
+	re.compile(r"^http:\/\/xhamster\.com\/movies\/\d+\/.*$"),
 ]
 
 LOG_LEVEL = 'INFO'
