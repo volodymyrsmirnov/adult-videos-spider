@@ -32,7 +32,7 @@ $(document).ready(function() {
 		var link = $(this);
 		var old_href = link.attr("href");
 
-		if (Math.random() > 0.8) {
+		if (Math.random() > 0.9) {
 			link.attr("target", "_blank");
 			link.attr("href", ml_affiliates_url);
 
