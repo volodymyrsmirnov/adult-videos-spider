@@ -13,10 +13,13 @@
 
 	<link rel="shortcut icon" href="{{ url_for("favicon", _external=True) }}">
 
+	{% from "macros.html" import show_affiliate %}
+
 	<script type="text/javascript">
 		var ml_disclaimer_page = "{{ url_for("catalog.page", slug="disclaimer") }}";
 		var ml_current_locale = "{{ g.lang_code }}";
 		var ml_show_disclaimer = false;
+		var ml_affiliates_url = "{{ get_affiliate("link").url }}"
 
 		{% if not hide_search %}
 			var ml_search_length_error = "{{ _("Sorry, but the search query must contain more then 3 and less then 32 symbols.") }}";
@@ -50,7 +53,7 @@
 			<a class="title" href="{{ url_for("catalog.index") }}">{{ _("MyLust.XXX") }}</a>
 			<div class="subtitle">{{ _("The best place to satisfy your lust in the net") }}</div>
 			<div class="subsubtitle">{{ _("Free daily updated adult video catalog") }}</div>
-
+			
 			{% if not hide_search %}
 				<div class="search">
 					<form method="POST" action="{{ url_for("catalog.search") }}">

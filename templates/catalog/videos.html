@@ -18,6 +18,7 @@
 {% block subtitle %}{{ subtitle }}{% endblock %}
 
 {% block content %}
+	{{ show_affiliate(get_affiliate("large")) }}
 
 	{{ pagination }}
 
@@ -42,6 +43,15 @@
 					</div>
 				</a>
 			</li>
+
+			{% if loop.index % 20 == 0 %}
+				</ul>
+
+				{{ show_affiliate(get_affiliate("large")) }}
+
+				<ul class="videos">
+			{% endif %}
+
 		{% endfor %}
 	</ul>
 

@@ -13,6 +13,16 @@
 	</div>
 {% endmacro %}
 
+{% macro show_affiliate(aff) %}
+	{% if aff %}
+		<div class="affiliate">
+			<a rel="nofollow" target="_blank" href="{{ aff.url }}">
+				<img src="{{ url_for("static", filename="affiliates/img/" + aff.img) }}">
+			</a>
+		</div>
+	{% endif %}
+{% endmacro %}
+
 {% macro render_pagination(pagination, endpoint) %}
 	{% if pagination.pages > 1 %}
 		<div class="pagination">

@@ -4,6 +4,26 @@ $one_column_size: 960px;
 	clear:both;
 }
 
+.affiliate {
+	display: block;
+	width: 100%;
+
+	margin: {
+		top: 10px;
+		bottom: 10px;
+	}
+
+	text-align: center;
+
+	a {
+		text-decoration: none;
+	}
+
+	img {
+		border: 0;
+	}
+}
+
 .tos_buttons {
 	text-align: center;
 
@@ -283,6 +303,10 @@ $one_column_size: 960px;
 		list-style: none;
 		margin: 0;
 		padding: 0;
+
+		.banner {
+			width: 100%;
+		}
 
 		.tag {
 			width: 180px;

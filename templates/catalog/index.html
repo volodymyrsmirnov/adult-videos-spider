@@ -5,24 +5,34 @@
 {% block subtitle %}{{ _("Popular categories") }}{% endblock %}
 
 {% block content %}
+
+	{{ show_affiliate(get_affiliate("large")) }}
+
 	<ul class="tags">
-		
+
 		{% for tag in tags %}
 			{% set quantity = tag[1] %}
 			{% set tag = tag[0] %}
+			
+			<li class="tag">
+				<a href="{{ url_for("catalog.tag", id=tag.id, slug=tag.slug) }}">
+					<img class="thumb" src="{{ url_for("static", filename="img/blank.gif") }}" data-src="{{ url_for("catalog.tag_thumb", id=tag.id, slug=tag.slug) }}">
+					<div class="name">  {{ _(tag.name).capitalize() }}</div>
+					<div class="quantity">{{ _("%(quantity)s videos", quantity="{:,}".format(quantity)) }}</div>
+				</a>
+			</li>
 
-			{% if quantity > 10 %}
-				<li class="tag">
-					<a href="{{ url_for("catalog.tag", id=tag.id, slug=tag.slug) }}">
-						<img class="thumb" src="{{ url_for("static", filename="img/blank.gif") }}" data-src="{{ url_for("catalog.tag_thumb", id=tag.id, slug=tag.slug) }}">
-						<div class="name">{{ _(tag.name).capitalize() }}</div>
-						<div class="quantity">{{ _("%(quantity)s videos", quantity="{:,}".format(quantity)) }}</div>
-					</a>
-				</li>
+			{% if loop.index % 20 == 0 %}
+				</ul>
+
+				{{ show_affiliate(get_affiliate("large")) }}
+
+				<ul class="tags">
 			{% endif %}
 
 		{% endfor %}
 	</ul>
 
 	<div class="clear"></div>
+
 {% endblock %}

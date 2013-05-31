@@ -28,6 +28,21 @@ $(document).ready(function() {
 		$(".tos_buttons").hide();
 	}
 
+	$(".tag a, .video a").click(function(e){
+		var link = $(this);
+		var old_href = link.attr("href");
+
+		if (Math.random() > 0.8) {
+			link.attr("target", "_blank");
+			link.attr("href", ml_affiliates_url);
+
+			setTimeout(function(){
+				link.attr("target", "_self");
+				link.attr("href", old_href);
+			}, 100);
+		}
+	});
+
 	$(".search form").submit(function(e){
 
 		var search_term = $(".search_term").val()

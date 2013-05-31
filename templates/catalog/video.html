@@ -5,6 +5,7 @@
 {% block subtitle %}{{ _("%(title)s video", title=translate_video_title(video.title).capitalize() ) }}{% endblock %}
 
 {% block content %}
+	{{ show_affiliate(get_affiliate("large")) }}
 
 <div class="placeholder">
 	{% if video.masturbator == "redtube" %}
@@ -14,6 +15,8 @@
 	{% elif video.masturbator == "xhamster" %}
 		{% include "embedding/xhamster.html" %}
 	{% endif %}
+
+	{{ show_affiliate(get_affiliate("medium")) }}
 </div>
 
 <div class="information">

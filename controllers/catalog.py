@@ -4,8 +4,12 @@
 """
 Catalog main view controller
 """
+import os, sys
+import csv
 import math
 import datetime
+
+from random import choice
 
 from flask import *
 
@@ -21,6 +25,44 @@ from flask.ext.babel import refresh as language_refresh
 from flask.ext.mail import Message
 
 from translate import Translator
+
+affiliates = {
+	"large": [],
+	"medium":[],
+	"link":[],
+	"parsed": False
+}
+
+def get_affiliate(afftype="medium"):
+	if not affiliates["parsed"]:
+		csvpath = os.path.join(current_app.root_path, 'static/affiliates/list.csv')
+
+		with open(csvpath, 'rb') as csvfile:
+			csvreader = csv.reader(csvfile, delimiter='|', quotechar='"')
+
+			for row in csvreader:
+				affiliate_item = {
+					"img": row[1],
+					"url": row[2],
+					"type": row[0]
+				}
+
+				if row[0] == "large":
+					affiliates["large"].append(affiliate_item)
+				elif row[0] == "medium":
+					affiliates["medium"].append(affiliate_item)
+				elif row[0] == "link":
+					affiliates["link"].append(affiliate_item)
+
+			affiliates["parsed"] = True
+
+	if not afftype in ["medium", "large", "link"]:
+		return None
+
+	affiliates_list = affiliates[afftype]
+
+	return choice(affiliates_list)
+
 
 def translate_video_title(what):
 	to_language = g.lang_code
@@ -49,6 +91,7 @@ def translate_video_title(what):
 def context_processor():
 	return dict(
 		translate_video_title=translate_video_title,
+		get_affiliate=get_affiliate
 	)
 
 @catalog.url_defaults
